@@ -208,7 +208,7 @@ html_theme_options = {
     "project_nav_name": "Stash",
 
     # Set your GitHub user and repo to enable GitHub stars links
-    "github_user": "tedivm",
+    "github_user": "tedious",
     "github_repo": "stash",
 
     # Set your Disqus short name to enable comments
@@ -225,7 +225,7 @@ html_theme_options = {
 
     # Specify a base_url used to generate sitemap.xml links. If not
     # specified, then no sitemap will be built.
-    "base_url": "http://stash.tedivm.com",
+    "base_url": "http://www.stashphp.com",
 
     # Add blog to links at top
     "navlinks": {
