@@ -1,0 +1,283 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+  
+  <link rel="stylesheet" type="text/css" href="_static/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="_static/css/bootstrap-theme.min.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <title>Adding Drivers &mdash; Stash 0.12.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/guzzle.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.12.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="top" title="Stash 0.12.1 documentation" href="index.html" />
+    <link rel="next" title="Contributing" href="Contributing.html" />
+    <link rel="prev" title="Extending" href="Extending.html" />
+  
+   
+
+  </head>
+  <body>
+<nav class="navbar navbar-default navbar-fixed-top " role="navigation">
+  <div class="container">
+    <div class="visible-md visible-lg navbar-text pull-right" id="github-stars">
+      <iframe src="http://ghbtns.com/github-btn.html?user=tedious&repo=stash&type=watch&count=true&size=small"
+      allowtransparency="true" frameborder="0" scrolling="0" width="110px" height="20px"></iframe>
+    </div>
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#toggle-main-nav">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="
+    
+      index.html">Stash</a>
+    </div>
+    <div class="collapse navbar-collapse" id="toggle-main-nav">
+      <ul class="nav navbar-nav">
+          <li><a href="
+      index.html">Home</a></li>
+          <li><a href="https://github.com/tedious/stash">Github</a></li>
+            
+              <li><a href="http://blog.tedivm.com">Blog</a></li>
+            
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="Contributing.html" title="Contributing"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="Extending.html" title="Extending"
+             accesskey="P">previous</a> |</li>
+        <li><a href="Contents.html">Stash 0.12.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="container-wrapper">
+        <div class="container-fluid">
+            
+    <div class="top-links">
+      <ul class="breadcrumb pull-right">
+        <li>
+          <a href="Extending.html" title="previous chapter (use the left arrow)">&larr; Extending</a>
+          <span class="divider"></span>
+          
+        </li>
+          <li><a href="Contributing.html" title="next chapter (use the right arrow)">Contributing &rarr;</a></li>
+      </ul>
+    </div>
+  
+            <div class="row document clearer">
+  <div class="col-md-3 sphinxsidebar">
+    <div class="sphinxsidebarwrapper">
+        <p class="logo"><a href="
+      index.html">
+          <img class="logo" src="_static/tedivmGlider.png" alt="Logo"/>
+        </a></p>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3><a href="
+    
+      index.html">Table Of Contents</a></h3>
+  </div>
+  <div class="panel-body panel-toc panel-globaltoc">
+    <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="index.html">Stash</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Basics.html">Basic Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Grouping.html">Groupings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Invalidation.html">Invalidation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="API.html">Core API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Drivers.html">Drivers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Integration.html">Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Extending.html">Extending</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Adding Drivers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#keys">Keys</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#driverinterface">DriverInterface</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#setoptions">setOptions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#getdata">getData</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#storedata">storeData</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#clear">clear</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#purge">purge</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#isavailable">isAvailable</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FAQ.html">FAQ</a></li>
+</ul>
+
+  </div>
+</div>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Search</h3>
+  </div>
+  <div class="panel-body">
+    <form class="form-inline" action="search.html" method="get" role="form">
+      <div class="input-group">
+        <input name="q" type="text" class="form-control">
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="button">Go</button>
+        </span>
+      </div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+  </div>
+</div>
+    </div>
+  </div>
+                <div class="col-md-9 body">
+                  
+  <div class="section" id="adding-drivers">
+<span id="addingdrivers"></span><h1>Adding Drivers<a class="headerlink" href="#adding-drivers" title="Permalink to this headline">¶</a></h1>
+<p>Although Stash comes with a variety of built in Drivers there are plenty more that can be built. New Drivers are always
+appreciated, so please feel free to issue a pull request to get it included in the core library.</p>
+<div class="section" id="keys">
+<h2>Keys<a class="headerlink" href="#keys" title="Permalink to this headline">¶</a></h2>
+<p>Stash provides a variety of methods for developers to define keys, but it normalizes those keys into an array before
+passing it to the driver. For the purposes of driver development a key is always an indexed array.</p>
+<p>For example, where a user can represent a key as &quot;path/to/data&quot;, it will always come to the Driver as
+array('path', 'to', 'data).</p>
+</div>
+<div class="section" id="driverinterface">
+<h2>DriverInterface<a class="headerlink" href="#driverinterface" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="setoptions">
+<h3>setOptions<a class="headerlink" href="#setoptions" title="Permalink to this headline">¶</a></h3>
+<p><em>setOptions(array $options = array())</em></p>
+<p>Sets the driver for use by the caching system. This driver handles the direct interface with the caching backends,
+keeping the system specific development abstracted out.</p>
+<p>It takes an array which is used to pass option values to the driver. As this is the only required function that is used
+specifically by the developer is is where any engine specific options should go. An engine that requires authentication
+information, as an example, should get them here.</p>
+<p>When defining this function it's important to use Key =&gt; Value pairs rather than indexed arrays, as it makes
+standardizing configuration builders easier for people integrating this library.</p>
+</div>
+<div class="section" id="getdata">
+<h3>getData<a class="headerlink" href="#getdata" title="Permalink to this headline">¶</a></h3>
+<p><em>getData($key)</em></p>
+<p>Returns the previously stored data as well as it's expiration date in an associative array. This array contains two
+keys- a 'data' key and an 'expiration' key. The 'data' key should be exactly the same as the value passed to storeData.</p>
+<p>In the event that data is not present simply return false.</p>
+</div>
+<div class="section" id="storedata">
+<h3>storeData<a class="headerlink" href="#storedata" title="Permalink to this headline">¶</a></h3>
+<p><em>storeData(array $key, mixed $data, $expiration)</em></p>
+<p>Takes in data from the exposed Stash libraries and stored it for later retrieval.</p>
+<ul class="simple">
+<li><em>Key</em> an array which should map to a specific, unique location for that array, This location should also be able to
+handle recursive deletes, where the removal of an item represented by an identical, but truncated, key causes all of
+the 'children' keys to be removed.</li>
+<li><em>Data</em> is the value meant to be stored. This is an array which contains the raw storage as well as meta data about the
+data. The meta data can be ignored or used by the driver but entire data parameter must be retrievable exactly as it
+was placed in.</li>
+<li><em>Expiration</em> is a timestamp containing representing the date and time the item will expire. This should also be
+stored, as it is needed by the getData function.</li>
+</ul>
+</div>
+<div class="section" id="clear">
+<h3>clear<a class="headerlink" href="#clear" title="Permalink to this headline">¶</a></h3>
+<p>clear(array $key = null)</p>
+<p>Clears the cache tree using the key array provided as the key. If called with no arguments the entire cache gets cleared.</p>
+</div>
+<div class="section" id="purge">
+<h3>purge<a class="headerlink" href="#purge" title="Permalink to this headline">¶</a></h3>
+<p><em>purge()</em></p>
+<p>This function provides a space for maintenance actions in the cache. It was originally meant for removing stale items in
+storage engines that needed manual actions to do so (sqlite, filesystem) but can be used for any maintenance that should
+not occur during regular user operations.</p>
+</div>
+<div class="section" id="isavailable">
+<h3>isAvailable<a class="headerlink" href="#isavailable" title="Permalink to this headline">¶</a></h3>
+<p><em>isAvailable()</em></p>
+<p>Returns whether the driver is able to run in the current environment or not. Any system checks - such as making sure any
+required extensions are missing - should be done here. This is a general check; if any instance of this driver can be
+used in the current environment it should return true.</p>
+</div>
+</div>
+</div>
+
+
+                </div>
+              <div class="clearfix"></div>
+            </div>
+            
+    <div class="footer-links">
+      <ul class="breadcrumb pull-right">
+        <li>
+          <a href="Extending.html" title="previous chapter (use the left arrow)">&larr; Extending</a>
+          <span class="divider"></span>
+          
+        </li>
+          <li><a href="Contributing.html" title="next chapter (use the right arrow)">Contributing &rarr;</a></li>
+      </ul>
+    </div>
+  
+
+        </div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="Contributing.html" title="Contributing"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="Extending.html" title="Extending"
+             >previous</a> |</li>
+        <li><a href="Contents.html">Stash 0.12.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+
+  <script type="text/javascript" src="_static/js/bootstrap.js"></script>
+  <div class="footer container">
+    &copy; Copyright 2014, Robert Hafner. Created using <a href="http://sphinx.pocoo.org/">Sphinx</a>.
+  </div>
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-29779027-1']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  </body>
+</html>
