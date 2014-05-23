@@ -215,7 +215,7 @@ html_theme_options = {
     # "disqus_comments_shortname": "my_disqus_comments_short_name",
 
     # Set you GA account ID to enable tracking
-    "google_analytics_account": "UA-29779027-1",
+    "google_analytics_account": "UA-51289125-1",
 
     # Set a custom class to add to the navbar (e.g. navbar-inverse)
     "navbar_class": "",
