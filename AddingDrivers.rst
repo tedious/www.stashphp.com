@@ -22,7 +22,7 @@ DriverInterface
 ===============
 
 setOptions
----------
+----------
 
 *setOptions(array $options = array())*
 
