@@ -229,7 +229,8 @@ html_theme_options = {
 
     # Add blog to links at top
     "navlinks": {
-      "Blog": "http://blog.tedivm.com"
+      "Blog": "http://blog.tedivm.com",
+      "StashBundle": "/Symfony.html"
     },
 
     # Override homepage template while still leaving TOS intact

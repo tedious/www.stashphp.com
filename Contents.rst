@@ -15,4 +15,5 @@ Stash Documentation
    Extending
    AddingDrivers
    Contributing
+   Symfony
    FAQ
