@@ -1,0 +1,461 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+  
+  <link rel="stylesheet" type="text/css" href="_static/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="_static/css/bootstrap-theme.min.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <title>StashBundle &mdash; Stash 0.12.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/guzzle.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.12.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="top" title="Stash 0.12.1 documentation" href="index.html" />
+    <link rel="next" title="FAQ" href="FAQ.html" />
+    <link rel="prev" title="Contributing" href="Contributing.html" />
+  
+   
+
+  </head>
+  <body>
+<nav class="navbar navbar-default navbar-fixed-top " role="navigation">
+  <div class="container">
+    <div class="visible-md visible-lg navbar-text pull-right" id="github-stars">
+      <iframe src="http://ghbtns.com/github-btn.html?user=tedious&repo=stash&type=watch&count=true&size=small"
+      allowtransparency="true" frameborder="0" scrolling="0" width="110px" height="20px"></iframe>
+    </div>
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#toggle-main-nav">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="
+    
+      index.html">Stash</a>
+    </div>
+    <div class="collapse navbar-collapse" id="toggle-main-nav">
+      <ul class="nav navbar-nav">
+          <li><a href="
+      index.html">Home</a></li>
+          <li><a href="https://github.com/tedious/stash">Github</a></li>
+            
+              <li><a href="http://blog.tedivm.com">Blog</a></li>
+            
+              <li><a href="/Symfony.html">StashBundle</a></li>
+            
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="FAQ.html" title="FAQ"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="Contributing.html" title="Contributing"
+             accesskey="P">previous</a> |</li>
+        <li><a href="Contents.html">Stash 0.12.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="container-wrapper">
+        <div class="container-fluid">
+            
+    <div class="top-links">
+      <ul class="breadcrumb pull-right">
+        <li>
+          <a href="Contributing.html" title="previous chapter (use the left arrow)">&larr; Contributing</a>
+          <span class="divider"></span>
+          
+        </li>
+          <li><a href="FAQ.html" title="next chapter (use the right arrow)">FAQ &rarr;</a></li>
+      </ul>
+    </div>
+  
+            <div class="row document clearer">
+  <div class="col-md-3 sphinxsidebar">
+    <div class="sphinxsidebarwrapper">
+        <p class="logo"><a href="
+      index.html">
+          <img class="logo" src="_static/tedivmGlider.png" alt="Logo"/>
+        </a></p>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3><a href="
+    
+      index.html">Table Of Contents</a></h3>
+  </div>
+  <div class="panel-body panel-toc panel-globaltoc">
+    <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="index.html">Stash</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Basics.html">Basic Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Grouping.html">Groupings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Invalidation.html">Invalidation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="API.html">Core API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Drivers.html">Drivers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Integration.html">Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Extending.html">Extending</a></li>
+<li class="toctree-l1"><a class="reference internal" href="AddingDrivers.html">Adding Drivers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Contributing.html">Contributing</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">StashBundle</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configuration">Configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#default-cache-service">Default Cache Service</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configuring-drivers">Configuring Drivers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#multiple-drivers">Multiple Drivers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#in-memory">In-Memory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#doctrine-adapter">Doctrine Adapter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#session-adapter">Session Adapter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#multiple-services">Multiple Services</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tracking">Tracking</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#stash-driver-configuration">Stash Driver Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="FAQ.html">FAQ</a></li>
+</ul>
+
+  </div>
+</div>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Search</h3>
+  </div>
+  <div class="panel-body">
+    <form class="form-inline" action="search.html" method="get" role="form">
+      <div class="input-group">
+        <input name="q" type="text" class="form-control">
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="button">Go</button>
+        </span>
+      </div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+  </div>
+</div>
+    </div>
+  </div>
+                <div class="col-md-9 body">
+                  
+  <div class="section" id="stashbundle">
+<span id="symfony"></span><h1>StashBundle<a class="headerlink" href="#stashbundle" title="Permalink to this headline">¶</a></h1>
+<p>The <strong>TedivmStashBundle</strong> integrates the <a class="reference external" href="https://github.com/tedivm/Stash">Stash caching
+library</a> into Symfony, providing a
+powerful abstraction for a range of caching engines. This bundle
+provides a caching service, adds Stash information to the Web Profiler
+toolbar, and adds integration for the Doctrine Common Cache library.</p>
+<p>Both the bundle and Stash are licensed under the New BSD License. Please
+fork us on <a class="reference external" href="https://github.com/tedivm/TedivmStashBundle">Github</a>!</p>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<p>Add the bundle using composer, either by requiring it on the command
+line:</p>
+<div class="highlight-shell"><div class="highlight"><pre>composer require tedivm/stash-bundle
+</pre></div>
+</div>
+<p>or by adding it directly to your <tt class="docutils literal"><span class="pre">composer.json</span></tt> file:</p>
+<div class="highlight-yaml"><div class="highlight"><pre><span class="s">&quot;require&quot;</span><span class="p-Indicator">:</span> <span class="p-Indicator">{</span>
+    <span class="s">&quot;tedivm/stash-bundle&quot;</span><span class="p-Indicator">:</span> <span class="s">&quot;0.4.*&quot;</span>
+<span class="p-Indicator">}</span>
+</pre></div>
+</div>
+<p>Add the bundle to <tt class="docutils literal"><span class="pre">app/AppKernel.php</span></tt>:</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="k">public</span> <span class="k">function</span> <span class="nf">registerBundles</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">return</span> <span class="k">array</span><span class="p">(</span>
+        <span class="k">new</span> <span class="nx">Tedivm\StashBundle\TedivmStashBundle</span><span class="p">(),</span>
+    <span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>And then set the basic configuration in <tt class="docutils literal"><span class="pre">app/config/config.yml</span></tt>:</p>
+<p><tt class="docutils literal"><span class="pre">stash:</span> <span class="pre">~</span></tt></p>
+</div>
+<div class="section" id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
+<p>Just fetch the default cache pool service:</p>
+<p><tt class="docutils literal"><span class="pre">$pool</span> <span class="pre">=</span> <span class="pre">$this-&gt;container-&gt;get('cache');</span></tt></p>
+<p>Or a custom-defined cache pool:</p>
+<p><tt class="docutils literal"><span class="pre">$pool</span> <span class="pre">=</span> <span class="pre">$this-&gt;container-&gt;get('stash.custom_cache');</span></tt></p>
+<p>Then you can use the cache service directly:</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="nv">$item</span> <span class="o">=</span> <span class="nv">$pool</span><span class="o">-&gt;</span><span class="na">getItem</span><span class="p">(</span><span class="nv">$id</span><span class="p">,</span> <span class="s1">&#39;info&#39;</span><span class="p">);</span>
+
+<span class="nv">$info</span> <span class="o">=</span> <span class="nv">$item</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">();</span>
+
+<span class="k">if</span><span class="p">(</span><span class="nv">$item</span><span class="o">-&gt;</span><span class="na">isMiss</span><span class="p">())</span>
+<span class="p">{</span>
+    <span class="nv">$info</span> <span class="o">=</span> <span class="nx">loadInfo</span><span class="p">(</span><span class="nv">$id</span><span class="p">);</span>
+    <span class="nv">$item</span><span class="o">-&gt;</span><span class="na">store</span><span class="p">(</span><span class="nv">$userInfo</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">return</span> <span class="nv">$info</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>(See the <a class="reference external" href="http://stash.tedivm.com/">Stash documentation</a> for more
+information on using the cache service.)</p>
+</div>
+<div class="section" id="configuration">
+<h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="default-cache-service">
+<h3>Default Cache Service<a class="headerlink" href="#default-cache-service" title="Permalink to this headline">¶</a></h3>
+<p>To get started quickly, you can define a single caching service with a
+single driver:</p>
+<div class="highlight-yaml"><div class="highlight"><pre><span class="l-Scalar-Plain">stash</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">drivers</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span> <span class="nv">FileSystem</span> <span class="p-Indicator">]</span>
+    <span class="l-Scalar-Plain">FileSystem</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">~</span>
+</pre></div>
+</div>
+<p>This cache service will be registered as <tt class="docutils literal"><span class="pre">stash.default_cache</span></tt>, which
+will also be automatically aliased to <tt class="docutils literal"><span class="pre">cache</span></tt>.</p>
+</div>
+<div class="section" id="configuring-drivers">
+<h3>Configuring Drivers<a class="headerlink" href="#configuring-drivers" title="Permalink to this headline">¶</a></h3>
+<p>You can set the individual parameters of the cache driver directly in
+the configuration:</p>
+<div class="highlight-yaml"><div class="highlight"><pre><span class="l-Scalar-Plain">stash</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">drivers</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span> <span class="nv">FileSystem</span> <span class="p-Indicator">]</span>
+    <span class="l-Scalar-Plain">FileSystem</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">dirSplit</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">3</span>
+        <span class="l-Scalar-Plain">path</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">/tmp</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="multiple-drivers">
+<h3>Multiple Drivers<a class="headerlink" href="#multiple-drivers" title="Permalink to this headline">¶</a></h3>
+<p>If you want to use multiple drivers in sequence, you can list them
+separately:</p>
+<div class="highlight-yaml"><div class="highlight"><pre><span class="l-Scalar-Plain">stash</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">drivers</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span> <span class="nv">Apc</span><span class="p-Indicator">,</span> <span class="nv">FileSystem</span> <span class="p-Indicator">]</span>
+    <span class="l-Scalar-Plain">Apc</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">~</span>
+    <span class="l-Scalar-Plain">FileSystem</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">path</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">/tmp</span>
+</pre></div>
+</div>
+<p>The cache service will automatically be configured with a Composite
+driver, with the drivers queried in the specified order (for example, in
+this example, Apc would be queried first, followed by FileSystem if that
+query failed.)</p>
+</div>
+<div class="section" id="in-memory">
+<h3>In-Memory<a class="headerlink" href="#in-memory" title="Permalink to this headline">¶</a></h3>
+<p>By default, every cache service includes in-memory caching: during the
+lifetime of a single request, any values stored or retrieved from the
+cache service will be stored in memory, with the in-memory
+representation being checked before any other drivers. In some
+circumstances, however (such as long-running CLI batch scripts) this may
+not be desirable. In those cases, the in-memory driver can be disabled:</p>
+<div class="highlight-yaml"><div class="highlight"><pre><span class="l-Scalar-Plain">stash</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">drivers</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span> <span class="nv">Apc</span> <span class="p-Indicator">]</span>
+    <span class="l-Scalar-Plain">inMemory</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">false</span>
+    <span class="l-Scalar-Plain">Apc</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">~</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="doctrine-adapter">
+<h3>Doctrine Adapter<a class="headerlink" href="#doctrine-adapter" title="Permalink to this headline">¶</a></h3>
+<p>Stash provides a Doctrine cache adapter so that your Stash caching
+service can be injected into any service that takes a
+DoctrineCacheInterface object. To turn on the adapter for a service, set
+the parameter:</p>
+<div class="highlight-yaml"><div class="highlight"><pre><span class="l-Scalar-Plain">stash</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">drivers</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span> <span class="nv">Apc</span> <span class="p-Indicator">]</span>
+    <span class="l-Scalar-Plain">registerDoctrineAdapter</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">true</span>
+    <span class="l-Scalar-Plain">Apc</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">~</span>
+</pre></div>
+</div>
+<p>For the default cache, the Adapter service will be added to the
+container under the name <tt class="docutils literal"><span class="pre">stash.adapter.doctrine.default_cache</span></tt>. You
+can use it anywhere you'd use a regular Doctrine Cache object:</p>
+<div class="highlight-yaml"><div class="highlight"><pre><span class="l-Scalar-Plain">doctrine</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">orm</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">metadata_cache_driver</span><span class="p-Indicator">:</span>
+            <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">service</span>
+            <span class="l-Scalar-Plain">id</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">stash.adapter.doctrine.default_cache</span>
+        <span class="l-Scalar-Plain">query_cache_driver</span><span class="p-Indicator">:</span>
+            <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">service</span>
+            <span class="l-Scalar-Plain">id</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">stash.adapter.doctrine.default_cache</span>
+        <span class="l-Scalar-Plain">result_cache_driver</span><span class="p-Indicator">:</span>
+            <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">service</span>
+            <span class="l-Scalar-Plain">id</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">stash.adapter.doctrine.default_cache</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="session-adapter">
+<h3>Session Adapter<a class="headerlink" href="#session-adapter" title="Permalink to this headline">¶</a></h3>
+<p>Stash provides a session adapter to allow Symfony sessions to be stored
+directly inside the cache. To turn on the adapter, set the parameter:</p>
+<div class="highlight-yaml"><div class="highlight"><pre><span class="l-Scalar-Plain">stash</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">drivers</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span> <span class="nv">Apc</span> <span class="p-Indicator">]</span>
+    <span class="l-Scalar-Plain">registerSessionHandler</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">true</span>
+    <span class="l-Scalar-Plain">Apc</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">~</span>
+</pre></div>
+</div>
+<p>Once it's enabled, enable it in the framework bundle and it will
+automatically be used:</p>
+<div class="highlight-yaml"><div class="highlight"><pre><span class="l-Scalar-Plain">framework</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">session</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">driver_id</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">stash.adapter.session.default_cache</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="multiple-services">
+<h3>Multiple Services<a class="headerlink" href="#multiple-services" title="Permalink to this headline">¶</a></h3>
+<p>You can also configure multiple services, each of which stores is
+entirely separate:</p>
+<div class="highlight-yaml"><div class="highlight"><pre><span class="l-Scalar-Plain">stash</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">caches</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">first</span><span class="p-Indicator">:</span>
+            <span class="l-Scalar-Plain">drivers</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span> <span class="nv">FileSystem</span> <span class="p-Indicator">]</span>
+            <span class="l-Scalar-Plain">registerDoctrineAdapter</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">true</span>
+            <span class="l-Scalar-Plain">FileSystem</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">~</span>
+        <span class="l-Scalar-Plain">second</span><span class="p-Indicator">:</span>
+            <span class="l-Scalar-Plain">drivers</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span> <span class="nv">Apc</span><span class="p-Indicator">,</span> <span class="nv">FileSystem</span> <span class="p-Indicator">]</span>
+            <span class="l-Scalar-Plain">inMemory</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">false</span>
+            <span class="l-Scalar-Plain">FileSystem ~</span>
+</pre></div>
+</div>
+<p>Each service is defined with keys inside a separate, distinct internal
+namespace, so you can use multiple services to avoid key collisions
+between distinct services even if you only have a single backend
+available.</p>
+<p>When multiple caches are defined, you can manually define a default,
+which will be aliased to the <tt class="docutils literal"><span class="pre">stash</span></tt> service:</p>
+<div class="highlight-yaml"><div class="highlight"><pre><span class="l-Scalar-Plain">stash</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">default_cache</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">first</span>
+    <span class="l-Scalar-Plain">first</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">...</span>
+    <span class="l-Scalar-Plain">second</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">...</span>
+</pre></div>
+</div>
+<p>If you don't, the first service defined will be set as the default.</p>
+</div>
+<div class="section" id="tracking">
+<h3>Tracking<a class="headerlink" href="#tracking" title="Permalink to this headline">¶</a></h3>
+<p>StashBundle includes a module which tracks the keys of all cache queries
+made during a request for debugging purposes. By default this module is
+enabled in the <tt class="docutils literal"><span class="pre">dev</span></tt> and <tt class="docutils literal"><span class="pre">test</span></tt> environments but disabled elsewhere.
+However, if you want to override the default behavior, you can enable or
+disable this behavior in the configuration:</p>
+<div class="highlight-yaml"><div class="highlight"><pre><span class="l-Scalar-Plain">stash</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">tracking</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">true</span> <span class="c1"># enables query logging, false to disable</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="stash-driver-configuration">
+<h2>Stash Driver Configuration<a class="headerlink" href="#stash-driver-configuration" title="Permalink to this headline">¶</a></h2>
+<p>Each driver comes with a set of default options which can be individually
+overridden. All of these options are documented on the Stash website's driver
+section.</p>
+<div class="highlight-yaml"><div class="highlight"><pre>FileSystem:
+    dirSplit:               2
+    path:                   %kernel.cache_dir%/stash
+    filePermissions:        0660
+    dirPermissions:         0770
+    memKeyLimit:            20
+Sqlite:
+    path:                   %kernel.cache_dir%/stash
+    filePermissions:        0660
+    dirPermissions:         0770
+    busyTimeout:            500
+    nesting:                0
+    subdriver:              PDO
+Apc:
+    ttl:                    300
+    namespace:              &lt;none&gt;
+Memcache:
+    servers:
+        - { server: 127.0.0.1, port: 11211, weight: 1 }
+</pre></div>
+</div>
+</div>
+</div>
+
+
+                </div>
+              <div class="clearfix"></div>
+            </div>
+            
+    <div class="footer-links">
+      <ul class="breadcrumb pull-right">
+        <li>
+          <a href="Contributing.html" title="previous chapter (use the left arrow)">&larr; Contributing</a>
+          <span class="divider"></span>
+          
+        </li>
+          <li><a href="FAQ.html" title="next chapter (use the right arrow)">FAQ &rarr;</a></li>
+      </ul>
+    </div>
+  
+
+        </div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="FAQ.html" title="FAQ"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="Contributing.html" title="Contributing"
+             >previous</a> |</li>
+        <li><a href="Contents.html">Stash 0.12.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+
+  <script type="text/javascript" src="_static/js/bootstrap.js"></script>
+  <div class="footer container">
+    &copy; Copyright 2014, Robert Hafner. Created using <a href="http://sphinx.pocoo.org/">Sphinx</a>.
+  </div>
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-51289125-1']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  </body>
+</html>
