@@ -133,7 +133,7 @@ This method takes one additional argument, the value to be returned while stampe
 .. code-block:: php
 
     <?php
-    $item->get(Item::SP_VALUE, 'Use this value while regenerating cache.');
+    $item->get(Invalidation::VALUE, 'Use this value while regenerating cache.');
 
     // returns true only if the value is stale and no other processes have
     // stated rebuilding the value.
