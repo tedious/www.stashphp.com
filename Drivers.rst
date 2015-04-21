@@ -119,7 +119,7 @@ to use.
     $driver = new Stash\Driver\Apc();
 
     // Setting a custom path is done by passing an options array to the constructor.
-    $options = array('ttl' => 3600, 'namespace' = md5(__file__));
+    $options = array('ttl' => 3600, 'namespace' => md5(__file__));
     $driver->setOptions($options);
 
 
@@ -268,25 +268,37 @@ from being placed back into a cleared subdriver.
 .. code-block:: php
 
     <?php
+    $apcDriver = new Stash\Driver\Apc();
+    $apcDriver->setOptions(array('ttl' => 3600, 'namespace' => md5(__file__)));
+    
+    $fileSystemDriver = new Stash\Driver\FileSystem();
+    $fileSystemDriver->setOptions(array());
+    
+    $memcachedDriver =  new Stash\Driver\Memcached();
+    $memcachedDriver->setOptions(array('servers' => array('localhost', '11211')));
+    
     $subDrivers = array();
-    $subDrivers[] = new Stash\Driver\Apc();
-    $subDrivers[] = new Stash\Driver\FileSystem();
-    $subDrivers[] = new Stash\Driver\Memcached();
+    $subDrivers[] = $apcDriver;
+    $subDrivers[] = $fileSystemDriver;
+    $subDrivers[] = $memcachedDriver;
 
     $options = array('drivers' => $subDrivers);
-    $driver = new Stash\Driver\Composite($options);
+    $driver = new Stash\Driver\Composite();
+    $driver->setOptions($options);
 
     $pool = new Stash\Pool($driver);
     $item = $pool->getItem('test');
 
-    // First it checks Apc. If that fails it checks FileSystem. If that succeeds
-    it stores the returned value
+    // First it checks Apc. If that fails it checks FileSystem. If that succeeds it stores the returned value
     // from FileSystem into Apc and then returns the value.
-    $data = $stash->get();
-
+    $data = $item->get();
+    
     // First the data is stored in FileSystem, and then it is put into Apc.
-    $stash->set($data);
-
-    // As with the store function, the data is first removed from FileSystem
-    before being cleared from Apc.
-    $stash->clear();
+    
+    if($item->isMiss())
+    {
+        $item->set($data);
+    }
+    
+    // As with the store function, the data is first removed from FileSystem before being cleared from Apc.
+    $item->clear();
