@@ -147,7 +147,7 @@ When this method is enabled and a different instance has called the lock functio
 the value upon waking up. This is not a website friendly method, but is potentially useful for cli or long running
 scripts.
 
-When this method is used Stash->get takes two additional arguments, the time (in microseconds) to sleep before
+When this method is used Stash->get takes two additional arguments, the time (in milliseconds) to sleep before
 reattempting to load the cache and the amount of times to try and reload it before giving up. The maximum amount of time
 spent sleeping is the product of these two numbers.
 
