@@ -144,7 +144,7 @@ complete driver for Memcached, complete with hierarchical caching.
 
 * *Options*
     Extension options can be passed to the "memcached" driver by adding them to
-    the options array. The memcached extension defined options using contants,
+    the options array. The memcached extension defined options using constants,
     ie Memcached::OPT%. By passing in the % portion ('compression' for
     Memcached::OPT_COMPRESSION) and its respective option. Please see the `php
     manual for memcached <http://us2.php.net/manual/en/memcached.constants.php>`_
