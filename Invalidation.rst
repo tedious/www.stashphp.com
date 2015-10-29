@@ -81,15 +81,18 @@ The default behavior of Stash, this method causes Stash to recalculate the cache
 cache misses down to almost zero, as the only ones that occur are for new data or the arterial ones this creates.
 
 When this method is used Item->get takes one additional argument, the amount of time (in seconds) before the expiration
-when it should regenerate the cache. If this isn't pass a default is chosen of 10% of the Item's TTL
+when it should regenerate the cache. This is called the ``precompute_time``, which defaults to 30 seconds.
 
 .. code-block:: php
 
     <?php
     // five minutes before the cache expires one instance will return a miss,
     // causing the cache to regenerate.
-    $item->get(Invalidation::PRECOMPUTE, 300);
+    $precompute_time = 300;
+    $item->get(Invalidation::PRECOMPUTE, $precompute_time);
 
+**Note:** If you use a TTL smaller than the ``precompute_time``, one process will *always* be re-computing
+the value. You can either set a smaller ``precompute_time``, or use the ``NONE`` strategy.
 
 None
 ----
