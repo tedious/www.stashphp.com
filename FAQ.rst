@@ -25,7 +25,7 @@ With modern packaging systems like Composer it's time to move on from PEAR.
 Compatibility
 =============
 
-* **What's all this PSR stuff I keep heading about?**
+* **What's all this PSR stuff I keep hearing about?**
 
 PSR's are documents published by the PHP Framework Interoperability Group, of which Stash is a member. This group
 attempts to make code more easily shared between libraries, frameworks and applications by creating standards that can
