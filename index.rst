@@ -70,7 +70,7 @@ Stash functions as a key-value store: you place things into the cache using a ke
 
     <?php
     $item = $pool->getItem('fruit');
-    $item->set('apple');
+    $pool->save($item->set('apple'))
 
     var_dump($item->get());
     // string(6) "apple"
@@ -82,7 +82,7 @@ This works between requests as well.
     <?php
     // First Request
     $item = $pool->getItem('fruit');
-    $item->set('apple');
+    $pool->save($item->set('apple'))
 
     // Second Request
     $item = $pool->getItem('fruit');
@@ -101,7 +101,7 @@ Putting this together with the rest of Stash allows for a simple yet flexible wa
         // Get a Stash object from the cache pool.
         $item = $pool->getItem('user', $userId, 'info');
 
-        // Get the date from it, if any happens to be there.
+        // Get the data from it, if any happens to be there.
         $userInfo = $item->get();
 
         // Check to see if the cache missed, which could mean that it either
@@ -111,8 +111,11 @@ Putting this together with the rest of Stash allows for a simple yet flexible wa
             // Run the relatively expensive code.
             $userInfo = loadUserInfoFromDatabase($userId);
 
-            // Store the expensive code so the next time it doesn't miss.
+            // Set the new value in $item.
             $item->set($userInfo);
+
+            // Store the expensive code so the next time it doesn't miss.
+            $pool->save($item)
         }
 
         return $userInfo;

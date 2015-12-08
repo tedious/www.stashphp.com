@@ -53,6 +53,6 @@ testing it's hard to make high quality drivers.
 Because we don't have a windows box to test it on, although that may change.
 
 
-* **Can you support X caching system?**
+* **Can you support (my favorite caching system)?**
 
 We're happy to take requests, but even happier when they're pull requests.

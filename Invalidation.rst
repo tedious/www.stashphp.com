@@ -45,12 +45,13 @@ regenerates the data.
 
     // Get the data from the cache using the "Invalidation::OLD" technique for
     // dealing with stampedes
-    $userInfo = $item->get(Stash\Invalidation::OLD);
+    $userInfo = $item->get();
+    $userInfo->setInvalidationMethod(Stash\Invalidation::OLD);
 
     // Check to see if the cache missed, which could mean that it either didn't
     // exist or was stale. If another process is regenerating this value and
     // there is a stored value available then this function will return a hit.
-    if($item->isMiss())
+    if(!$item->isHit())
     {
         // Mark this instance as the one regenerating the cache. Because our
         // protection method is Invalidation::OLD other Stash instances will
@@ -63,7 +64,8 @@ regenerates the data.
         // Store the expensive code so the next time it doesn't miss. The store
         // function marks the stampede as over for now, so other Stash items
         // will begin working as normal.
-        $item->set($userInfo);
+        $pool->save($item->set($userInfo));
+
     }
 
 Invalidation Methods
@@ -88,8 +90,7 @@ when it should regenerate the cache. If this isn't pass a default is chosen of 1
     <?php
     // five minutes before the cache expires one instance will return a miss,
     // causing the cache to regenerate.
-    $item->get(Invalidation::PRECOMPUTE, 300);
-
+    $item->setInvalidationMethod(Invalidation::PRECOMPUTE, 300);
 
 None
 ----
@@ -101,7 +102,7 @@ get called by a large number of users, such as by the Session Handler. Before St
 .. code-block:: php
 
     <?php
-    $item->get(Invalidation::NONE);
+    $item->setInvalidationMethod(Invalidation::NONE);
 
     // returns false if the item is missing or expired, no exceptions.
     $item->isMiss();
@@ -116,7 +117,7 @@ in the cache even if it is stale.
 .. code-block:: php
 
     <?php
-    $item->get(Invalidation::OLD);
+    $item->setInvalidationMethod(Invalidation::OLD);
 
     // return false if another Item instance is rebuilding the cached item even
     // though the returned item is stale
@@ -133,7 +134,7 @@ This method takes one additional argument, the value to be returned while stampe
 .. code-block:: php
 
     <?php
-    $item->get(Invalidation::VALUE, 'Use this value while regenerating cache.');
+    $item->setInvalidationMethod(Invalidation::VALUE, 'Use this value while regenerating cache.');
 
     // returns true only if the value is stale and no other processes have
     // stated rebuilding the value.
@@ -156,4 +157,4 @@ spent sleeping is the product of these two numbers.
     <?php
     // sleeps for .5 seconds, reattempts to load the cache, then sleeps again
     // for another .5 seconds before making it's last attempt
-    $item->get(Invalidation::SLEEP, 500, 2);
+    $item->setInvalidationMethod(Invalidation::SLEEP, 500, 2);

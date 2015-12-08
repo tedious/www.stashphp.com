@@ -21,14 +21,12 @@ Composer is the preferred method of installation. Stash is present
 on `Packagist <https://packagist.org/packages/tedivm/stash>`_, making
 installation as easy as adding a directive to your project's composer.json file.
 
-Until Stash reaches a stable API with version 1.0 it is recommended that you
-review changes before even Minor updates, although bug fixes will always be
-backwards compatible.
+Just add Stash to your require block, setting the minimum version you depend on.
 
 .. code-block:: yaml
 
       "require": {
-        "tedivm/stash": "0.12.*"
+        "tedivm/stash": "~1.0"
       }
 
 
@@ -59,9 +57,9 @@ Autoloading
 If you installed using composer then you simply need to include it's autoloader.
 This is the preferred method of loading Stash.
 
-Stash confirms to PSR-0 and places it's code in the src folder, making it easy
+Stash confirms to PSR-4 and places it's code in the src folder, making it easy
 to include in a custom autoloader. This means "Stash\Pool" can be found in
-"src\Stash\Pool.php"..
+"src\Stash\Pool.php".
 
 If all else fails there is an autoloader that is packaged with Stash itself.
 Just include "autoload.php".
