@@ -73,7 +73,7 @@ Stash functions as a key-value store: you place things into the cache using a ke
     $item->set('apple');
 
     var_dump($item->get());
-    // string(6) "apples"
+    // string(5) "apple"
 
 This works between requests as well.
 
@@ -87,7 +87,7 @@ This works between requests as well.
     // Second Request
     $item = $pool->getItem('fruit');
     var_dump($item->get());
-    // string(6) "apples"
+    // string(5) "apple"
 
 Putting this together with the rest of Stash allows for a simple yet flexible way to speed up scripts by reusing data.
 
