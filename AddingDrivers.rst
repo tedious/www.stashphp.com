@@ -11,7 +11,7 @@ appreciated, so please feel free to issue a pull request to get it included in t
 Keys
 ====
 
-Stash provides a variety of methods for developers to define keys, but it normalizes those keys into an array before
+Stash asks for keys to be provided as strings, but it normalizes those keys into an array before
 passing it to the driver. For the purposes of driver development a key is always an indexed array.
 
 For example, where a user can represent a key as "path/to/data", it will always come to the Driver as

@@ -16,8 +16,7 @@ fork us on `Github <https://github.com/tedivm/TedivmStashBundle>`__!
 Installation
 ------------
 
-Add the bundle using composer, either by requiring it on the command
-line:
+Add the bundle using composer, either by requiring it on the command line:
 
 .. code-block:: shell
 
@@ -28,7 +27,7 @@ or by adding it directly to your ``composer.json`` file:
 .. code-block:: yaml
 
     "require": {
-        "tedivm/stash-bundle": "0.4.*"
+        "tedivm/stash-bundle": "0.5.*"
     }
 
 Add the bundle to ``app/AppKernel.php``:

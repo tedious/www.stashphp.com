@@ -62,19 +62,16 @@ Creating an Item with Stash is simple-
 
     <?php
     $pool = new Stash\Pool();
-
-    // Set the "key", which is the path the Stash object points to.
     $item = $pool->getItem('path/to/data');
 
 This will create a Pool using the default "Ephemeral" driver. Data will be cached for the lifetime of the request, but
-will not be available to future requests. In order to cache data across requests a drivers is needed.
+will not be available to future requests. In order to cache data across requests a driver is needed.
 
 .. code-block:: php
 
     <?php
     // Create Driver with default options
-    $driver = new Stash\Driver\FileSystem();
-    $driver->setOptions(array());
+    $driver = new Stash\Driver\FileSystem(array());
 
     // Inject the driver into a new Pool object.
     $pool = new Stash\Pool($driver);
@@ -100,44 +97,46 @@ Items can be retrieved from the Pool class individually or in groups.
     $item = $pool->getItem('path/to/data');
 
     // Retrieve an iterator containing multiple cache items
-    $items = $pool->getItemIterator('path/to/data', 'path/to/more/data');
-
-
-Identifying Items
------------------
-
-The examples so far show how to get Items using a Key represented as a string. It is also possible to represent a Key
-as an array or a series of function arguments. Each of these methods will retrieve the same Item, this is just some
-syntactic sugar developers can use.
-
-.. code-block:: php
-
-    <?php
-    // Pass the key as a string
-    $item = $pool->getItem('models/users/' . $id . '/info');
-
-    // Pass the key as an array
-    $item = $pool->getItem(array('models', 'users', $id, 'info'));
-
-    // Pass the key as a series of arguments
-    $item = $pool->getItem('models', 'users', $id, 'info');
+    $items = $pool->getItems('path/to/data', 'path/to/more/data');
 
 
 Caching Data
 ------------
 
-Storing and Retrieving Data is done through the Item class. Four functions do the bulk of the work:
+Storing and retrieving data is done using the Pool class.
+
+* *getItem()* - Returns a single item.
+
+* *getItems()* - Returns multiple items.
+
+* *deleteItem()* - Deletes a single item.
+
+* *deleteItems()* - Deletes one or more items.
+
+* *save()* - Saves one Item into the pool.
+
+* *saveDeferred()* - Saves one Item, but groups those save operations to optimize performance.
+
+* *commit()* - Commits any saveDeferred-Items which haven't been persisted yet.
+
+
+Manipulating Data is done through the Item class. Six functions do the bulk of the work:
 
 * *get()* - Returns data that was previously stored, or null if nothing stored. (Since it is possible to store null
   values it is very important not to rely on a null return to check for a cache miss.)
 
-* *isMiss()* - Returns true if no data is stored or the data is stale; returns false if fresh data is present.
+* *isHit()* - Returns true if fresh data is present; returns false if no data is stored or the data is stale.
 
 * *lock()* - This is used to let other processes know that this process is generating new data.
 
-* *set($data, $ttl = null)* - Stores the specified data for use by other requests.
+* *set($data)* - Stores the specified data for use by other requests.
 
-Using these four functions, you can create simple cache blocks -- pieces of code where you fetch data, check to see if
+* *expiresAt(\DateTimeInterface $expiration)* - Sets the expiration to no later than the passed DateTime object.
+
+* *expiresAfter($time)* - Sets the expiration time using a TTL (in seconds) or a DateInverval object.
+
+
+Using these functions you can create simple cache blocks -- pieces of code where you fetch data, check to see if
 it's fresh, and then regenerate and store the data if it was stale or absent.
 
 .. code-block:: php
@@ -160,7 +159,7 @@ it's fresh, and then regenerate and store the data if it was stale or absent.
         $data = codeThatTakesALongTime();
 
         // Store the expensive to generate data.
-        $item->set($data);
+        $pool->save($item->set($data));
     }
 
     // Continue as normal.
@@ -182,8 +181,13 @@ or an explicit expiration using a DateTime object.
     if($item->isMiss())
     {
         $data = expensiveFunction();
+
+        $item->set($data);
+
         // Cache expires in one hour.
-        $item->set($data, 3600);
+        $item->expiresAfter(3600);
+
+        $pool->save($item);
     }
 
 
@@ -193,9 +197,12 @@ or an explicit expiration using a DateTime object.
     {
         $data = expensiveFunction();
 
-        // Cache expires January 21, 2015.
-        $expiration = new DateTime('2015-01-21');
-        $item->set($data, $expiration);
+        // Cache expires January 21, 2020.
+        $expiration = new DateTime('2020-01-21');
+        $item->expiresAfter($expiration);
+        $item->set($data);
+
+        $pool->save($item);
     }
 
 
@@ -216,12 +223,10 @@ the hierarchy.*
 
     <?php
     // Clearing a key.
-    $item = $pool->getItem('path/to/data/specific/123')
-    $item->clear();
+    $pool->deleteItem('path/to/data/specific/123');
 
     // Clearing a key with subkeys
-    $item = $pool->getItem('path/to/data')
-    $item->clear(); // clears 'path/to/data/*' as well as 'path/to/data'
+    $pool->deleteItem('path/to/data/specific/123');  // clears 'path/to/data/*' as well as 'path/to/data'
 
 
 Emptying the Entire Cache
@@ -232,7 +237,7 @@ The Pool class can also empty the entire cache:
 .. code-block:: php
 
     <?php
-    $pool->flush();
+    $pool->clear();
 
 
 Running Maintenance

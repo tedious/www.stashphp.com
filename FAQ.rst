@@ -9,6 +9,9 @@ Packaging
 
 * **When is version 1.0 coming out?**
 
+Soon! After years of work PSR-6: Caching Interfaces has passed! Until now this has been the major piece for releasing
+a stable v1.0.0. Once this current line has been tested by the community
+
 Right now the biggest thing holding back v1.0 is the completion of the PSR-Caching proposal. This proposal is meant to
 define a common caching interface that libraries such as Stash can expose to any library that desires caching. Once this
 is complete and we can be sure that Stash does not have anything in it that would prevent it from adopting this standard
@@ -50,9 +53,9 @@ testing it's hard to make high quality drivers.
 
 * **Why don't you support wincache?**
 
-Because we don't have a windows box to test it on, although that may change.
+Because we don't have a windows box to test it on, although that may change once Travis-CI offers a solid solution.
 
 
-* **Can you support X caching system?**
+* **Can you support (my favorite caching system)?**
 
 We're happy to take requests, but even happier when they're pull requests.
