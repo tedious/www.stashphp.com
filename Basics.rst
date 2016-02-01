@@ -71,8 +71,7 @@ will not be available to future requests. In order to cache data across requests
 
     <?php
     // Create Driver with default options
-    $driver = new Stash\Driver\FileSystem();
-    $driver->setOptions(array());
+    $driver = new Stash\Driver\FileSystem(array());
 
     // Inject the driver into a new Pool object.
     $pool = new Stash\Pool($driver);

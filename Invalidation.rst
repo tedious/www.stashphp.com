@@ -91,7 +91,7 @@ when it should regenerate the cache. This is called the ``precompute_time``, whi
     // five minutes before the cache expires one instance will return a miss,
     // causing the cache to regenerate.
     $precompute_time = 300;
-    $item->get(Invalidation::PRECOMPUTE, $precompute_time);
+    $item->setInvalidationMethod(Invalidation::PRECOMPUTE, $precompute_time);
 
 **Note:** If you use a TTL smaller than the ``precompute_time``, one process will *always* be re-computing
 the value. You can either set a smaller ``precompute_time``, or use this knowing that a single process will

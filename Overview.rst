@@ -7,7 +7,7 @@ Overview
 Requirements
 ============
 
-Stash requires a minimum version of PHP5.3 or HHVM 3.0 in order to run. Individual
+Stash requires a minimum version of PHP5.4 or HHVM 3.0 in order to run. Individual
 drivers and caching systems will have their own requirements.
 
 
@@ -26,7 +26,7 @@ Just add Stash to your require block, setting the minimum version you depend on.
 .. code-block:: yaml
 
       "require": {
-        "tedivm/stash": "~1.0"
+        "tedivm/stash": "0.14.*"
       }
 
 

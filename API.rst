@@ -175,9 +175,17 @@ The disable function prevents any read or write operations and forces all the ot
 expiresAfter
 ------------
 
+*expiresAfter(int|\DateInterval $time)*
+
+Sets the expiration based off of an integer or DateInterval.
+
 
 expiresAt
 ---------
+
+*expiresAt(\DateTimeInterface $expiration)*
+
+Sets the expiration to a specific time.
 
 
 extend
@@ -226,9 +234,23 @@ group of Items in an Iterator.
 isDisabled
 ----------
 
+*isDisabled()*
+
+Returns true if Stash has been disabled (typically via the disable function).
+
 
 isHit
 -----
+
+*isHit()*
+
+The isHit function returns false when the current Item has either stale or no data. Since Stash is capable of storing
+both null and false values and returning them via the get function this is the only real way to test whether a cached
+value is usable or not.
+
+The exact behavior used to define a cache miss is defined by the invalidation method used for the object. The
+:ref:`invalidation` page contains much more information about hos to use this functionality.
+
 
 
 isMiss
@@ -236,12 +258,8 @@ isMiss
 
 *isMiss()*
 
-The isMiss function returns true when the current Item has either stale or no data. Since Stash is capable of storing
-both null and false values and returning them via the get function this is the only real way to test whether a cached
-value is usable or not.
-
-The exact behavior used to define a cache miss is defined by the invalidation method used for the object. The
-:ref:`invalidation` page contains much more information about hos to use this functionality.
+This function is the opposite of isHit. Is is here for backwards compatibility, but to be PSR-6 compliant use the
+isHit function instead.
 
 
 lock

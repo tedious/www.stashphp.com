@@ -37,6 +37,8 @@ Interop Group <http://www.php-fig.org/>`__.
 -  `PSR-2: Coding style guide <http://www.php-fig.org/psr/psr-2/>`__
 -  `PSR-3: Logger Interface <http://www.php-fig.org/psr/3/>`_.
 -  `PSR-4: Autoloader <http://www.php-fig.org/psr/4/>`_.
+-  `PSR-6: Caching Interface <http://www.php-fig.org/psr/6/>`_.
+
 
 All code most follow these standards to be accepted. The easiest way to accomplish this is to run php-cs-fixer once the
 new changes are finished. The php-cs-fixer package is installed as a development dependency of this project.

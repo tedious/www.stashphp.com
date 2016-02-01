@@ -9,9 +9,19 @@ Stash makes it easy to speed up your code by caching the results of expensive fu
 Features
 ========
 
-**Stores all PHP Datatypes**
-    Stash can store all of the php native datatypes- integers, booleans, null,
-    strings, arrays and objects that can be serialized.
+**PSR-6 Support**
+    Stash impliments the PSR-6 interfaces, allowing Stash to be injected into
+    any library that supports PSR-6.
+
+**Regeneration Before Expiration**
+    Stash gives developers the option to regenerate a cached item before it
+    misses, making sure that up to data is always available while limiting
+    expensive code to running one instance at a time.
+
+**Distributed Cache Misses**
+    In order to reduce sudden spikes on a system Stash alters the expiration
+    times by lowering the cache age a random amount, thus distributing the cache
+    hits over a period of time.
 
 **Hierarchal Cache**
     Stored items can be nested, like the folders of a filesystem. This allows
@@ -24,7 +34,7 @@ Features
     between requests. Current drivers include Filesystem, APC, Memcached, and
     Sqlite drivers.
 
-**Staggered Drivers**
+**Composite Drivers**
     It occasionally makes sense to use multiple backends- for example, you may
     have a small amount of memory to allot but a large piece of filesystem, in
     which case using APC and the FileSystem driver together is an ideal
@@ -38,15 +48,10 @@ Features
     the developer the ability to limit cache regeneration to a single process,
     as well as an assortment of ways to handle misses.
 
-**Regenerates Before Expiration**
-    Stash gives developers the option to regenerate a cached item before it
-    misses, making sure that up to data is always available while limiting
-    expensive code to running one instance at a time.
+**Stores all PHP Datatypes**
+    Stash can store all of the php native datatypes- integers, booleans, null,
+    strings, arrays and objects that can be serialized.
 
-**Distributed Cache Misses**
-    In order to reduce sudden spikes on a system Stash alters the expiration
-    times by lowering the cache age a random amount, thus distributing the cache
-    hits over a period of time.
 
 **Optimized Data Encoding**
     Care is taken to use the fastest possible encoding and decoding functions
@@ -99,7 +104,7 @@ Putting this together with the rest of Stash allows for a simple yet flexible wa
         $pool = $this->cachePool;
 
         // Get a Stash object from the cache pool.
-        $item = $pool->getItem('user', $userId, 'info');
+        $item = $pool->getItem("/user/{$userId}/info");
 
         // Get the data from it, if any happens to be there.
         $userInfo = $item->get();
