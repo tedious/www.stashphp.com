@@ -11,7 +11,7 @@
   <link rel="stylesheet" type="text/css" href="_static/css/bootstrap-theme.min.css" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-    <title>Contributing &mdash; Stash 0.12.1 documentation</title>
+    <title>Contributing &mdash; Stash 0.14.0 documentation</title>
     
     <link rel="stylesheet" href="_static/guzzle.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -19,7 +19,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '0.12.1',
+        VERSION:     '0.14.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -29,14 +29,14 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="shortcut icon" href="_static/favicon.ico"/>
-    <link rel="top" title="Stash 0.12.1 documentation" href="index.html" />
+    <link rel="top" title="Stash 0.14.0 documentation" href="Contents.html" />
     <link rel="next" title="StashBundle" href="Symfony.html" />
     <link rel="prev" title="Adding Drivers" href="AddingDrivers.html" />
   
    
 
   </head>
-  <body>
+  <body role="document">
 <nav class="navbar navbar-default navbar-fixed-top " role="navigation">
   <div class="container">
     <div class="visible-md visible-lg navbar-text pull-right" id="github-stars">
@@ -73,7 +73,7 @@
 </nav>
 
 
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -85,7 +85,7 @@
         <li class="right" >
           <a href="AddingDrivers.html" title="Adding Drivers"
              accesskey="P">previous</a> |</li>
-        <li><a href="Contents.html">Stash 0.12.1 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="Contents.html">Stash 0.14.0 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="container-wrapper">
@@ -173,6 +173,7 @@ reports to feature requests, typos to full new features- are greatly appreciated
 <ul class="simple">
 <li>One Item Per Pull Request or Issue. This makes it much easier to review code and merge it back in, and prevents
 issues with one request from blocking another.</li>
+<li>Make sure to update the CHANGELOG.md file with your changes.</li>
 <li>Code Coverage is extremely important, and pull requests are much more likely to be accepted if testing is also
 improved. New code should be properly tested, and all tests must pass.</li>
 <li>Read the LICENSE document and make sure you understand it, because your code is going to be released under it.</li>
@@ -185,14 +186,16 @@ improved. New code should be properly tested, and all tests must pass.</li>
 <p>This project follows the PSR standards set forth by the <a class="reference external" href="http://www.php-fig.org/">PHP Framework
 Interop Group</a>.</p>
 <ul class="simple">
-<li><a class="reference external" href="https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-0.md">PSR-0: Class and file naming conventions</a></li>
-<li><a class="reference external" href="https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-1-basic-coding-standard.md">PSR-1: Basic coding standard</a></li>
-<li><a class="reference external" href="https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md">PSR-2: Coding style guide</a></li>
+<li><a class="reference external" href="http://www.php-fig.org/psr/psr-1/">PSR-1: Basic coding standard</a></li>
+<li><a class="reference external" href="http://www.php-fig.org/psr/psr-2/">PSR-2: Coding style guide</a></li>
+<li><a class="reference external" href="http://www.php-fig.org/psr/3/">PSR-3: Logger Interface</a>.</li>
+<li><a class="reference external" href="http://www.php-fig.org/psr/4/">PSR-4: Autoloader</a>.</li>
+<li><a class="reference external" href="http://www.php-fig.org/psr/6/">PSR-6: Caching Interface</a>.</li>
 </ul>
 <p>All code most follow these standards to be accepted. The easiest way to accomplish this is to run php-cs-fixer once the
 new changes are finished. The php-cs-fixer package is installed as a development dependency of this project.</p>
 <div class="highlight-bash"><div class="highlight"><pre>composer install --dev
-vendor/bin/php-cs-fixer fix ./ --level<span class="o">=</span><span class="s2">&quot;all&quot;</span> -vv
+vendor/bin/php-cs-fixer fix ./ -vv
 </pre></div>
 </div>
 </div>
@@ -204,15 +207,15 @@ vendor/bin/php-cs-fixer fix ./ --level<span class="o">=</span><span class="s2">&
 </div>
 <p>The &quot;runTests.sh&quot; script runs the full test suite- phpunit,
 php-cs-fixer, as well as any environmental setup:</p>
-<div class="highlight-bash"><div class="highlight"><pre>tests/runTests.sh
+<div class="highlight-bash"><div class="highlight"><pre>./tests/runTests.sh
 </pre></div>
 </div>
 <p>To call phpunit directly:</p>
-<div class="highlight-bash"><div class="highlight"><pre>vendor/bin/phpunit
+<div class="highlight-bash"><div class="highlight"><pre>./vendor/bin/phpunit
 </pre></div>
 </div>
 <p>To call php-cs-fixer directly:</p>
-<div class="highlight-bash"><div class="highlight"><pre>vendor/bin/php-cs-fixer fix ./ --level<span class="o">=</span><span class="s2">&quot;all&quot;</span> -vv --dry-run
+<div class="highlight-bash"><div class="highlight"><pre>./vendor/bin/php-cs-fixer fix ./ -vv --dry-run
 </pre></div>
 </div>
 </div>
@@ -237,7 +240,7 @@ php-cs-fixer, as well as any environmental setup:</p>
 
         </div>
     </div>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -249,13 +252,13 @@ php-cs-fixer, as well as any environmental setup:</p>
         <li class="right" >
           <a href="AddingDrivers.html" title="Adding Drivers"
              >previous</a> |</li>
-        <li><a href="Contents.html">Stash 0.12.1 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="Contents.html">Stash 0.14.0 documentation</a> &raquo;</li> 
       </ul>
     </div>
 
   <script type="text/javascript" src="_static/js/bootstrap.js"></script>
   <div class="footer container">
-    &copy; Copyright 2014, Robert Hafner. Created using <a href="http://sphinx.pocoo.org/">Sphinx</a>.
+    &copy; Copyright 2016, Robert Hafner. Created using <a href="http://sphinx.pocoo.org/">Sphinx</a>.
   </div>
     <script type="text/javascript">
       var _gaq = _gaq || [];

@@ -11,7 +11,7 @@
   <link rel="stylesheet" type="text/css" href="_static/css/bootstrap-theme.min.css" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-    <title>Stash Documentation &mdash; Stash 0.12.1 documentation</title>
+    <title>Stash Documentation &mdash; Stash 0.14.0 documentation</title>
     
     <link rel="stylesheet" href="_static/guzzle.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -19,7 +19,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '0.12.1',
+        VERSION:     '0.14.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -29,13 +29,13 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="shortcut icon" href="_static/favicon.ico"/>
-    <link rel="top" title="Stash 0.12.1 documentation" href="index.html" />
+    <link rel="top" title="Stash 0.14.0 documentation" href="#" />
     <link rel="next" title="Stash" href="index.html" />
   
    
 
   </head>
-  <body>
+  <body role="document">
 <nav class="navbar navbar-default navbar-fixed-top " role="navigation">
   <div class="container">
     <div class="visible-md visible-lg navbar-text pull-right" id="github-stars">
@@ -72,7 +72,7 @@
 </nav>
 
 
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -81,7 +81,7 @@
         <li class="right" >
           <a href="index.html" title="Stash"
              accesskey="N">next</a> |</li>
-        <li><a href="#">Stash 0.12.1 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="#">Stash 0.14.0 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="container-wrapper">
@@ -152,7 +152,6 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="Basics.html#examples">Examples</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="Basics.html#creating-items">Creating Items</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Basics.html#identifying-items">Identifying Items</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Basics.html#caching-data">Caching Data</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Basics.html#clearing-data">Clearing Data</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Basics.html#emptying-the-entire-cache">Emptying the Entire Cache</a></li>
@@ -181,27 +180,43 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="API.html">Core API</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="API.html#pool">Pool</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="API.html#clear">clear</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API.html#construct">__construct</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API.html#commit">commit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API.html#deleteitems">deleteItems</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API.html#getdriver">getDriver</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API.html#getitem">getItem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API.html#getitems">getItems</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API.html#getnamespace">getNamespace</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API.html#hasitem">hasItem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API.html#purge">purge</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API.html#save">save</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API.html#savedeferred">saveDeferred</a></li>
 <li class="toctree-l3"><a class="reference internal" href="API.html#setdriver">setDriver</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API.html#setitemclass">setItemClass</a></li>
 <li class="toctree-l3"><a class="reference internal" href="API.html#setlogger">setLogger</a></li>
 <li class="toctree-l3"><a class="reference internal" href="API.html#setnamespace">setNamespace</a></li>
-<li class="toctree-l3"><a class="reference internal" href="API.html#getnamespace">getNamespace</a></li>
-<li class="toctree-l3"><a class="reference internal" href="API.html#getitem">getItem</a></li>
-<li class="toctree-l3"><a class="reference internal" href="API.html#getitemiterator">getItemIterator</a></li>
-<li class="toctree-l3"><a class="reference internal" href="API.html#flush">flush</a></li>
-<li class="toctree-l3"><a class="reference internal" href="API.html#purge">purge</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="API.html#item">Item</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="API.html#get">get</a></li>
-<li class="toctree-l3"><a class="reference internal" href="API.html#ismiss">isMiss</a></li>
-<li class="toctree-l3"><a class="reference internal" href="API.html#lock">lock</a></li>
-<li class="toctree-l3"><a class="reference internal" href="API.html#set">set</a></li>
-<li class="toctree-l3"><a class="reference internal" href="API.html#clear">clear</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API.html#id1">clear</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API.html#disable">disable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API.html#expiresafter">expiresAfter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API.html#expiresat">expiresAt</a></li>
 <li class="toctree-l3"><a class="reference internal" href="API.html#extend">extend</a></li>
-<li class="toctree-l3"><a class="reference internal" href="API.html#getkey">getKey</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API.html#get">get</a></li>
 <li class="toctree-l3"><a class="reference internal" href="API.html#getcreation">getCreation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="API.html#getexpiration">getExpiration</a></li>
-<li class="toctree-l3"><a class="reference internal" href="API.html#disable">disable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API.html#getkey">getKey</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API.html#isdisabled">isDisabled</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API.html#ishit">isHit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API.html#ismiss">isMiss</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API.html#lock">lock</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API.html#id2">save</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API.html#set">set</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API.html#setinvalidationmethod">setInvalidationMethod</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API.html#id3">setLogger</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API.html#setttl">setTTL</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="API.html#drivers">Drivers</a><ul>
@@ -314,7 +329,7 @@
 
         </div>
     </div>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -323,13 +338,13 @@
         <li class="right" >
           <a href="index.html" title="Stash"
              >next</a> |</li>
-        <li><a href="#">Stash 0.12.1 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="#">Stash 0.14.0 documentation</a> &raquo;</li> 
       </ul>
     </div>
 
   <script type="text/javascript" src="_static/js/bootstrap.js"></script>
   <div class="footer container">
-    &copy; Copyright 2014, Robert Hafner. Created using <a href="http://sphinx.pocoo.org/">Sphinx</a>.
+    &copy; Copyright 2016, Robert Hafner. Created using <a href="http://sphinx.pocoo.org/">Sphinx</a>.
   </div>
     <script type="text/javascript">
       var _gaq = _gaq || [];

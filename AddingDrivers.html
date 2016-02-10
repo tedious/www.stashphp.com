@@ -11,7 +11,7 @@
   <link rel="stylesheet" type="text/css" href="_static/css/bootstrap-theme.min.css" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-    <title>Adding Drivers &mdash; Stash 0.12.1 documentation</title>
+    <title>Adding Drivers &mdash; Stash 0.14.0 documentation</title>
     
     <link rel="stylesheet" href="_static/guzzle.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -19,7 +19,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '0.12.1',
+        VERSION:     '0.14.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -29,14 +29,14 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="shortcut icon" href="_static/favicon.ico"/>
-    <link rel="top" title="Stash 0.12.1 documentation" href="index.html" />
+    <link rel="top" title="Stash 0.14.0 documentation" href="Contents.html" />
     <link rel="next" title="Contributing" href="Contributing.html" />
     <link rel="prev" title="Extending" href="Extending.html" />
   
    
 
   </head>
-  <body>
+  <body role="document">
 <nav class="navbar navbar-default navbar-fixed-top " role="navigation">
   <div class="container">
     <div class="visible-md visible-lg navbar-text pull-right" id="github-stars">
@@ -73,7 +73,7 @@
 </nav>
 
 
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -85,7 +85,7 @@
         <li class="right" >
           <a href="Extending.html" title="Extending"
              accesskey="P">previous</a> |</li>
-        <li><a href="Contents.html">Stash 0.12.1 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="Contents.html">Stash 0.14.0 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="container-wrapper">
@@ -173,7 +173,7 @@
 appreciated, so please feel free to issue a pull request to get it included in the core library.</p>
 <div class="section" id="keys">
 <h2>Keys<a class="headerlink" href="#keys" title="Permalink to this headline">¶</a></h2>
-<p>Stash provides a variety of methods for developers to define keys, but it normalizes those keys into an array before
+<p>Stash asks for keys to be provided as strings, but it normalizes those keys into an array before
 passing it to the driver. For the purposes of driver development a key is always an indexed array.</p>
 <p>For example, where a user can represent a key as &quot;path/to/data&quot;, it will always come to the Driver as
 array('path', 'to', 'data).</p>
@@ -254,7 +254,7 @@ used in the current environment it should return true.</p>
 
         </div>
     </div>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -266,13 +266,13 @@ used in the current environment it should return true.</p>
         <li class="right" >
           <a href="Extending.html" title="Extending"
              >previous</a> |</li>
-        <li><a href="Contents.html">Stash 0.12.1 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="Contents.html">Stash 0.14.0 documentation</a> &raquo;</li> 
       </ul>
     </div>
 
   <script type="text/javascript" src="_static/js/bootstrap.js"></script>
   <div class="footer container">
-    &copy; Copyright 2014, Robert Hafner. Created using <a href="http://sphinx.pocoo.org/">Sphinx</a>.
+    &copy; Copyright 2016, Robert Hafner. Created using <a href="http://sphinx.pocoo.org/">Sphinx</a>.
   </div>
     <script type="text/javascript">
       var _gaq = _gaq || [];

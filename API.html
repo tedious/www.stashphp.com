@@ -11,7 +11,7 @@
   <link rel="stylesheet" type="text/css" href="_static/css/bootstrap-theme.min.css" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-    <title>Core API &mdash; Stash 0.12.1 documentation</title>
+    <title>Core API &mdash; Stash 0.14.0 documentation</title>
     
     <link rel="stylesheet" href="_static/guzzle.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -19,7 +19,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '0.12.1',
+        VERSION:     '0.14.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -29,14 +29,14 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="shortcut icon" href="_static/favicon.ico"/>
-    <link rel="top" title="Stash 0.12.1 documentation" href="index.html" />
+    <link rel="top" title="Stash 0.14.0 documentation" href="Contents.html" />
     <link rel="next" title="Drivers" href="Drivers.html" />
     <link rel="prev" title="Invalidation" href="Invalidation.html" />
   
    
 
   </head>
-  <body>
+  <body role="document">
 <nav class="navbar navbar-default navbar-fixed-top " role="navigation">
   <div class="container">
     <div class="visible-md visible-lg navbar-text pull-right" id="github-stars">
@@ -73,7 +73,7 @@
 </nav>
 
 
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -85,7 +85,7 @@
         <li class="right" >
           <a href="Invalidation.html" title="Invalidation"
              accesskey="P">previous</a> |</li>
-        <li><a href="Contents.html">Stash 0.12.1 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="Contents.html">Stash 0.14.0 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="container-wrapper">
@@ -124,27 +124,43 @@
 <li class="toctree-l1"><a class="reference internal" href="Invalidation.html">Invalidation</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">Core API</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#pool">Pool</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#clear">clear</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#construct">__construct</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#commit">commit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#deleteitems">deleteItems</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#getdriver">getDriver</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#getitem">getItem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#getitems">getItems</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#getnamespace">getNamespace</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hasitem">hasItem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#purge">purge</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#save">save</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#savedeferred">saveDeferred</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#setdriver">setDriver</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#setitemclass">setItemClass</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#setlogger">setLogger</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#setnamespace">setNamespace</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#getnamespace">getNamespace</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#getitem">getItem</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#getitemiterator">getItemIterator</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#flush">flush</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#purge">purge</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#item">Item</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#get">get</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#ismiss">isMiss</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#lock">lock</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#set">set</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#clear">clear</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">clear</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#disable">disable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#expiresafter">expiresAfter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#expiresat">expiresAt</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#extend">extend</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#getkey">getKey</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#get">get</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#getcreation">getCreation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#getexpiration">getExpiration</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#disable">disable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#getkey">getKey</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#isdisabled">isDisabled</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ishit">isHit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ismiss">isMiss</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#lock">lock</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">save</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#set">set</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#setinvalidationmethod">setInvalidationMethod</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">setLogger</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#setttl">setTTL</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#drivers">Drivers</a><ul>
@@ -199,42 +215,53 @@
 <p>The Pool class represents the entire caching system and all of the items in it. Objects of this class are used to
 retrieve Items from the cache, as well as to perform bulk operations on the system such as Purging or Clearing the
 cache.</p>
-<div class="section" id="setdriver">
-<h3>setDriver<a class="headerlink" href="#setdriver" title="Permalink to this headline">¶</a></h3>
-<p><em>setDriver($driver)</em></p>
-<p>Sets the driver for use by the caching system. This driver handles the direct interface with the caching backends,
-keeping the system specific development abstracted out.</p>
+<div class="section" id="clear">
+<h3>clear<a class="headerlink" href="#clear" title="Permalink to this headline">¶</a></h3>
+<p><em>clear()</em></p>
+<p>The clear function completely empties all items associated with the Pool. After calling this every Item will be considered a miss and will have to be regenerated.</p>
 </div>
-<div class="section" id="setlogger">
-<h3>setLogger<a class="headerlink" href="#setlogger" title="Permalink to this headline">¶</a></h3>
-<p><em>setLogger($logger)</em></p>
-<p>Sets a PSR LoggerInterface style logging client to enable the tracking of errors.</p>
+<div class="section" id="construct">
+<h3>__construct<a class="headerlink" href="#construct" title="Permalink to this headline">¶</a></h3>
+<p><em>__construct(DriverInterface $driver = null)</em></p>
+<p>The constructor takes a Driver class which is used for persistent storage. If no driver is provided then the Ephemeral driver is used by default.</p>
 </div>
-<div class="section" id="setnamespace">
-<h3>setNamespace<a class="headerlink" href="#setnamespace" title="Permalink to this headline">¶</a></h3>
-<p>Places the Pool inside of a &quot;namespace&quot;. All Items inside a specific namespace should be completely segmented from all
-other Items.</p>
+<div class="section" id="commit">
+<h3>commit<a class="headerlink" href="#commit" title="Permalink to this headline">¶</a></h3>
+<p><em>commit()</em></p>
+<p>The commit function persists any Item that was put into the Pool using the savedDeferred function and hasn't been saved yet.</p>
 </div>
-<div class="section" id="getnamespace">
-<h3>getNamespace<a class="headerlink" href="#getnamespace" title="Permalink to this headline">¶</a></h3>
-<p>Retrieves the current namespace, or false if one isn't set.</p>
+<div class="section" id="deleteitems">
+<h3>deleteItems<a class="headerlink" href="#deleteitems" title="Permalink to this headline">¶</a></h3>
+<p><em>deleteItems(array $keys)</em></p>
+<p>Removes items from the Pool based off of their keys.</p>
+</div>
+<div class="section" id="getdriver">
+<h3>getDriver<a class="headerlink" href="#getdriver" title="Permalink to this headline">¶</a></h3>
+<p><em>getDriver()</em></p>
+<p>Returns the underlying driver used by the Pool to persist data.</p>
 </div>
 <div class="section" id="getitem">
 <h3>getItem<a class="headerlink" href="#getitem" title="Permalink to this headline">¶</a></h3>
 <p><em>getItem($key)</em></p>
 <p>The getItem function takes in a key and returns an associated Item object. The structure of keys can be found on the
-<a class="reference internal" href="Basics.html#basics"><em>Basic Usage</em></a> page.</p>
+<a class="reference internal" href="Basics.html#basics"><span>Basic Usage</span></a> page.</p>
 </div>
-<div class="section" id="getitemiterator">
-<h3>getItemIterator<a class="headerlink" href="#getitemiterator" title="Permalink to this headline">¶</a></h3>
-<p><em>getItemIterator(array $keys)</em></p>
-<p>The getItemIterator function takes in an array of keys and returns an Iterator object populated by Item objects for
-those keys. The structure of keys can be found on the <a class="reference internal" href="Basics.html#basics"><em>Basic Usage</em></a> page.</p>
+<div class="section" id="getitems">
+<h3>getItems<a class="headerlink" href="#getitems" title="Permalink to this headline">¶</a></h3>
+<p><em>getItems(array $keys)</em></p>
+<p>The getItems function takes in an array of keys and returns an Iterator object populated by Item objects for
+those keys. The structure of keys can be found on the <a class="reference internal" href="Basics.html#basics"><span>Basic Usage</span></a> page.</p>
 </div>
-<div class="section" id="flush">
-<h3>flush<a class="headerlink" href="#flush" title="Permalink to this headline">¶</a></h3>
-<p><em>flush()</em></p>
-<p>The flush function completely empties all items associated with the Pool. After calling this every Item will be considered a miss and will have to be regenerated.</p>
+<div class="section" id="getnamespace">
+<h3>getNamespace<a class="headerlink" href="#getnamespace" title="Permalink to this headline">¶</a></h3>
+<p><em>getNamespace()</em></p>
+<p>Retrieves the current namespace, or false if one isn't set.</p>
+</div>
+<div class="section" id="hasitem">
+<h3>hasItem<a class="headerlink" href="#hasitem" title="Permalink to this headline">¶</a></h3>
+<p><em>hasItem($key)</em></p>
+<p>Returns true if the specified key has a value stored in the Pool. A safer way to do this would be to use the isHit/isMiss
+functions in the Item class.</p>
 </div>
 <div class="section" id="purge">
 <h3>purge<a class="headerlink" href="#purge" title="Permalink to this headline">¶</a></h3>
@@ -244,54 +271,63 @@ storage. Not all drivers need this, as many interact with systems that handle th
 <p>It's important that this function is not called from inside a normal request, as the maintenance tasks this allows can
 occasionally take some time.</p>
 </div>
+<div class="section" id="save">
+<h3>save<a class="headerlink" href="#save" title="Permalink to this headline">¶</a></h3>
+<p><em>save($item)</em></p>
+<p>Takes an Item class and persists it to the Pool.</p>
+</div>
+<div class="section" id="savedeferred">
+<h3>saveDeferred<a class="headerlink" href="#savedeferred" title="Permalink to this headline">¶</a></h3>
+<p><em>saveDeferred($item)</em></p>
+<p>Takes an Item class and eventually persists it to the Pool. This allows Stash to buffer cache operations and send them together,
+optimizing the number of cache calls.</p>
+</div>
+<div class="section" id="setdriver">
+<h3>setDriver<a class="headerlink" href="#setdriver" title="Permalink to this headline">¶</a></h3>
+<p><em>setDriver($driver)</em></p>
+<p>Sets the driver for use by the caching system. This driver handles the direct interface with the caching backends,
+keeping the system specific development abstracted out.</p>
+</div>
+<div class="section" id="setitemclass">
+<h3>setItemClass<a class="headerlink" href="#setitemclass" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="setlogger">
+<h3>setLogger<a class="headerlink" href="#setlogger" title="Permalink to this headline">¶</a></h3>
+<p><em>setLogger($logger)</em></p>
+<p>Sets a PSR LoggerInterface style logging client to enable the tracking of errors.</p>
+</div>
+<div class="section" id="setnamespace">
+<h3>setNamespace<a class="headerlink" href="#setnamespace" title="Permalink to this headline">¶</a></h3>
+<p><em>setNamespace($namespace)</em></p>
+<p>Places the Pool inside of a &quot;namespace&quot;. All Items inside a specific namespace should be completely segmented from all
+other Items.</p>
+</div>
 </div>
 <div class="section" id="item">
 <h2>Item<a class="headerlink" href="#item" title="Permalink to this headline">¶</a></h2>
 <p>The Item class represents specific pieces of data in the caching system. Item
 objects are created by the Pool class.</p>
-<div class="section" id="get">
-<h3>get<a class="headerlink" href="#get" title="Permalink to this headline">¶</a></h3>
-<p><em>get($invalidation == Invalidation::PRECOMPUTE, [$args])</em></p>
-<p>Retrieves the stored value of the Item or null if one is not set. Because null can be a valid stored object it is
-important to call <em>isMiss</em> in order to actually check it's validity.</p>
-<p>The get function can take a series of optional arguments defining how it handles cache misses. The first of these
-options is the invalidation method to be used, while the other options all provide invalidation specific options. The
-<a class="reference internal" href="Invalidation.html#invalidation"><em>Invalidation</em></a> page contains much more information about hos to use this functionality.</p>
-</div>
-<div class="section" id="ismiss">
-<h3>isMiss<a class="headerlink" href="#ismiss" title="Permalink to this headline">¶</a></h3>
-<p><em>isMiss()</em></p>
-<p>The isMiss function returns true when the current Item has either stale or no data. Since Stash is capable of storing
-both null and false values and returning them via the get function this is the only real way to test whether a cached
-value is usable or not.</p>
-<p>The exact behavior used to define a cache miss is defined by the invalidation method used for the object. The
-<a class="reference internal" href="Invalidation.html#invalidation"><em>Invalidation</em></a> page contains much more information about hos to use this functionality.</p>
-</div>
-<div class="section" id="lock">
-<h3>lock<a class="headerlink" href="#lock" title="Permalink to this headline">¶</a></h3>
-<p><em>lock($ttl = null)</em></p>
-<p>This should be called right before the script attempts to regenerate data from a cache miss. It signifies to other
-processes or requests that the data is being generated and allows them to take special action to improve system
-performance. Put more simply, just call this function and your cache will be higher performing as a result.</p>
-<p>The exact effect of this function depends on which invalidation method is being used. The <a class="reference internal" href="Invalidation.html#invalidation"><em>Invalidation</em></a> page
-contains much more information about how to use this functionality.</p>
-</div>
-<div class="section" id="set">
-<h3>set<a class="headerlink" href="#set" title="Permalink to this headline">¶</a></h3>
-<p><em>set($data, $ttl = null)</em></p>
-<p>The set function is used to populate the cache with data. The first argument can be any type of data that is able to be
-serialized- essentially everything except resources and classes which can't be serialized.</p>
-<p>The second argument defines how long the Item will be stored in the cache. This is a maximum time, as Items can be
-cleared or removed earlier but will never be considered a cache hit after it. This argument can either be a DateTime
-defining a specific expiration or an integer representing the time, in seconds, that the data should be considered
-fresh.</p>
-</div>
-<div class="section" id="clear">
-<h3>clear<a class="headerlink" href="#clear" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id1">
+<h3>clear<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <p><em>clear()</em></p>
 <p>The clear function removes the current Item's data from the backend storage.</p>
 <p>If hierarchical or &quot;stackable&quot; caching is being used this function will also remove children Items. The Key section of
-the <a class="reference internal" href="Basics.html#basics"><em>Basic Usage</em></a> document goes into more detail about how that works.</p>
+the <a class="reference internal" href="Basics.html#basics"><span>Basic Usage</span></a> document goes into more detail about how that works.</p>
+</div>
+<div class="section" id="disable">
+<h3>disable<a class="headerlink" href="#disable" title="Permalink to this headline">¶</a></h3>
+<p><em>disable()</em></p>
+<p>The disable function prevents any read or write operations and forces all the other calls to fail gracefully.</p>
+</div>
+<div class="section" id="expiresafter">
+<h3>expiresAfter<a class="headerlink" href="#expiresafter" title="Permalink to this headline">¶</a></h3>
+<p><em>expiresAfter(int|DateInterval $time)</em></p>
+<p>Sets the expiration based off of an integer or DateInterval.</p>
+</div>
+<div class="section" id="expiresat">
+<h3>expiresAt<a class="headerlink" href="#expiresat" title="Permalink to this headline">¶</a></h3>
+<p><em>expiresAt(DateTimeInterface $expiration)</em></p>
+<p>Sets the expiration to a specific time.</p>
 </div>
 <div class="section" id="extend">
 <h3>extend<a class="headerlink" href="#extend" title="Permalink to this headline">¶</a></h3>
@@ -299,11 +335,11 @@ the <a class="reference internal" href="Basics.html#basics"><em>Basic Usage</em>
 <p>This extends the Item's lifetime without changing it's data. Like the set function, the ttl can be a DateTime or
 integer.</p>
 </div>
-<div class="section" id="getkey">
-<h3>getKey<a class="headerlink" href="#getkey" title="Permalink to this headline">¶</a></h3>
-<p><em>getKey()</em></p>
-<p>The getKey function returns this Item's key as a string. This is particularly useful when the Item is returned as a
-group of Items in an Iterator.</p>
+<div class="section" id="get">
+<h3>get<a class="headerlink" href="#get" title="Permalink to this headline">¶</a></h3>
+<p><em>get($invalidation)</em></p>
+<p>Retrieves the stored value of the Item or null if one is not set. Because null can be a valid stored object it is
+important to call <em>isMiss</em> in order to actually check it's validity.</p>
 </div>
 <div class="section" id="getcreation">
 <h3>getCreation<a class="headerlink" href="#getcreation" title="Permalink to this headline">¶</a></h3>
@@ -315,10 +351,67 @@ group of Items in an Iterator.</p>
 <p><em>getExpiration()</em></p>
 <p>This returns a DateTime of the Item's expiration time, if it is available.</p>
 </div>
-<div class="section" id="disable">
-<h3>disable<a class="headerlink" href="#disable" title="Permalink to this headline">¶</a></h3>
-<p><em>disable()</em></p>
-<p>The disable function prevents any read or write operations and forces all the other calls to fail gracefully.</p>
+<div class="section" id="getkey">
+<h3>getKey<a class="headerlink" href="#getkey" title="Permalink to this headline">¶</a></h3>
+<p><em>getKey()</em></p>
+<p>The getKey function returns this Item's key as a string. This is particularly useful when the Item is returned as a
+group of Items in an Iterator.</p>
+</div>
+<div class="section" id="isdisabled">
+<h3>isDisabled<a class="headerlink" href="#isdisabled" title="Permalink to this headline">¶</a></h3>
+<p><em>isDisabled()</em></p>
+<p>Returns true if Stash has been disabled (typically via the disable function).</p>
+</div>
+<div class="section" id="ishit">
+<h3>isHit<a class="headerlink" href="#ishit" title="Permalink to this headline">¶</a></h3>
+<p><em>isHit()</em></p>
+<p>The isHit function returns false when the current Item has either stale or no data. Since Stash is capable of storing
+both null and false values and returning them via the get function this is the only real way to test whether a cached
+value is usable or not.</p>
+<p>The exact behavior used to define a cache miss is defined by the invalidation method used for the object. The
+<a class="reference internal" href="Invalidation.html#invalidation"><span>Invalidation</span></a> page contains much more information about hos to use this functionality.</p>
+</div>
+<div class="section" id="ismiss">
+<h3>isMiss<a class="headerlink" href="#ismiss" title="Permalink to this headline">¶</a></h3>
+<p><em>isMiss()</em></p>
+<p>This function is the opposite of isHit. Is is here for backwards compatibility, but to be PSR-6 compliant use the
+isHit function instead.</p>
+</div>
+<div class="section" id="lock">
+<h3>lock<a class="headerlink" href="#lock" title="Permalink to this headline">¶</a></h3>
+<p><em>lock($ttl = null)</em></p>
+<p>This should be called right before the script attempts to regenerate data from a cache miss. It signifies to other
+processes or requests that the data is being generated and allows them to take special action to improve system
+performance. Put more simply, just call this function and your cache will be higher performing as a result.</p>
+<p>The exact effect of this function depends on which invalidation method is being used. The <a class="reference internal" href="Invalidation.html#invalidation"><span>Invalidation</span></a> page
+contains much more information about how to use this functionality.</p>
+</div>
+<div class="section" id="id2">
+<h3>save<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="set">
+<h3>set<a class="headerlink" href="#set" title="Permalink to this headline">¶</a></h3>
+<p><em>set($data)</em></p>
+<p>The set function is used to populate the cache with data. The only argument can be any type of data that is able to be
+serialized- essentially everything except resources and classes which can't be serialized.</p>
+</div>
+<div class="section" id="setinvalidationmethod">
+<h3>setInvalidationMethod<a class="headerlink" href="#setinvalidationmethod" title="Permalink to this headline">¶</a></h3>
+<p><em>setInvalidationMethod($invalidation == Invalidation::PRECOMPUTE, [$args])</em></p>
+<p>This function can take a series of optional arguments defining how it handles cache misses. The first of these
+options is the invalidation method to be used, while the other options all provide invalidation specific options. The
+<a class="reference internal" href="Invalidation.html#invalidation"><span>Invalidation</span></a> page contains much more information about hos to use this functionality.</p>
+</div>
+<div class="section" id="id3">
+<h3>setLogger<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="setttl">
+<h3>setTTL<a class="headerlink" href="#setttl" title="Permalink to this headline">¶</a></h3>
+<p><em>setTTL($ttl = null)</em></p>
+<p>The second argument defines how long the Item will be stored in the cache. This is a maximum time, as Items can be
+cleared or removed earlier but will never be considered a cache hit after it. This argument can either be a DateTime
+defining a specific expiration or an integer representing the time, in seconds, that the data should be considered
+fresh.</p>
 </div>
 </div>
 <div class="section" id="drivers">
@@ -326,7 +419,7 @@ group of Items in an Iterator.</p>
 <p>Stash works by storing values into various backend systems, like APC and Memcached, and retrieving them later. With the
 exception their creation and setup, drivers don't have any &quot;public&quot; functions- they are used by the Pool and Item
 classes themselves to interact with the underlying cache system.</p>
-<p>The <a class="reference internal" href="Drivers.html#drivers"><em>Drivers</em></a> page contains a list of all drivers and their options.</p>
+<p>The <a class="reference internal" href="Drivers.html#drivers"><span>Drivers</span></a> page contains a list of all drivers and their options.</p>
 <div class="section" id="setoptions">
 <h3>setOptions<a class="headerlink" href="#setoptions" title="Permalink to this headline">¶</a></h3>
 <p><em>setOptions(array $options)</em></p>
@@ -380,7 +473,7 @@ information on what Drivers are available.</p>
 
         </div>
     </div>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -392,13 +485,13 @@ information on what Drivers are available.</p>
         <li class="right" >
           <a href="Invalidation.html" title="Invalidation"
              >previous</a> |</li>
-        <li><a href="Contents.html">Stash 0.12.1 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="Contents.html">Stash 0.14.0 documentation</a> &raquo;</li> 
       </ul>
     </div>
 
   <script type="text/javascript" src="_static/js/bootstrap.js"></script>
   <div class="footer container">
-    &copy; Copyright 2014, Robert Hafner. Created using <a href="http://sphinx.pocoo.org/">Sphinx</a>.
+    &copy; Copyright 2016, Robert Hafner. Created using <a href="http://sphinx.pocoo.org/">Sphinx</a>.
   </div>
     <script type="text/javascript">
       var _gaq = _gaq || [];

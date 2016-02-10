@@ -11,7 +11,7 @@
   <link rel="stylesheet" type="text/css" href="_static/css/bootstrap-theme.min.css" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-    <title>Drivers &mdash; Stash 0.12.1 documentation</title>
+    <title>Drivers &mdash; Stash 0.14.0 documentation</title>
     
     <link rel="stylesheet" href="_static/guzzle.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -19,7 +19,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '0.12.1',
+        VERSION:     '0.14.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -29,14 +29,14 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="shortcut icon" href="_static/favicon.ico"/>
-    <link rel="top" title="Stash 0.12.1 documentation" href="index.html" />
+    <link rel="top" title="Stash 0.14.0 documentation" href="Contents.html" />
     <link rel="next" title="Integration" href="Integration.html" />
     <link rel="prev" title="Core API" href="API.html" />
   
    
 
   </head>
-  <body>
+  <body role="document">
 <nav class="navbar navbar-default navbar-fixed-top " role="navigation">
   <div class="container">
     <div class="visible-md visible-lg navbar-text pull-right" id="github-stars">
@@ -73,7 +73,7 @@
 </nav>
 
 
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -85,7 +85,7 @@
         <li class="right" >
           <a href="API.html" title="Core API"
              accesskey="P">previous</a> |</li>
-        <li><a href="Contents.html">Stash 0.12.1 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="Contents.html">Stash 0.14.0 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="container-wrapper">
@@ -321,7 +321,7 @@ own caches but are using the same Stash install.</p>
 <span class="nv">$driver</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Stash\Driver\Apc</span><span class="p">();</span>
 
 <span class="c1">// Setting a custom path is done by passing an options array to the constructor.</span>
-<span class="nv">$options</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;ttl&#39;</span> <span class="o">=&gt;</span> <span class="mi">3600</span><span class="p">,</span> <span class="s1">&#39;namespace&#39;</span> <span class="o">=</span> <span class="nb">md5</span><span class="p">(</span><span class="k">__file__</span><span class="p">));</span>
+<span class="nv">$options</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;ttl&#39;</span> <span class="o">=&gt;</span> <span class="mi">3600</span><span class="p">,</span> <span class="s1">&#39;namespace&#39;</span> <span class="o">=&gt;</span> <span class="nb">md5</span><span class="p">(</span><span class="k">__file__</span><span class="p">));</span>
 <span class="nv">$driver</span><span class="o">-&gt;</span><span class="na">setOptions</span><span class="p">(</span><span class="nv">$options</span><span class="p">);</span>
 </pre></div>
 </div>
@@ -353,7 +353,7 @@ the newer memcached and fallback to memcache if it is not available.</p>
 <li><dl class="first docutils">
 <dt><em>Options</em></dt>
 <dd><p class="first last">Extension options can be passed to the &quot;memcached&quot; driver by adding them to
-the options array. The memcached extension defined options using contants,
+the options array. The memcached extension defined options using constants,
 ie Memcached::OPT%. By passing in the % portion ('compression' for
 Memcached::OPT_COMPRESSION) and its respective option. Please see the <a class="reference external" href="http://us2.php.net/manual/en/memcached.constants.php">php
 manual for memcached</a>
@@ -470,28 +470,40 @@ previously missed it are repopulated so they will hit on it next time. The
 store, clear and purge operations are run in reverse order to prevent stale data
 from being placed back into a cleared subdriver.</p>
 <div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+<span class="nv">$apcDriver</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Stash\Driver\Apc</span><span class="p">();</span>
+<span class="nv">$apcDriver</span><span class="o">-&gt;</span><span class="na">setOptions</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s1">&#39;ttl&#39;</span> <span class="o">=&gt;</span> <span class="mi">3600</span><span class="p">,</span> <span class="s1">&#39;namespace&#39;</span> <span class="o">=&gt;</span> <span class="nb">md5</span><span class="p">(</span><span class="k">__file__</span><span class="p">)));</span>
+
+<span class="nv">$fileSystemDriver</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Stash\Driver\FileSystem</span><span class="p">();</span>
+<span class="nv">$fileSystemDriver</span><span class="o">-&gt;</span><span class="na">setOptions</span><span class="p">(</span><span class="k">array</span><span class="p">());</span>
+
+<span class="nv">$memcachedDriver</span> <span class="o">=</span>  <span class="k">new</span> <span class="nx">Stash\Driver\Memcached</span><span class="p">();</span>
+<span class="nv">$memcachedDriver</span><span class="o">-&gt;</span><span class="na">setOptions</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s1">&#39;servers&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;localhost&#39;</span><span class="p">,</span> <span class="s1">&#39;11211&#39;</span><span class="p">)));</span>
+
 <span class="nv">$subDrivers</span> <span class="o">=</span> <span class="k">array</span><span class="p">();</span>
-<span class="nv">$subDrivers</span><span class="p">[]</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Stash\Driver\Apc</span><span class="p">();</span>
-<span class="nv">$subDrivers</span><span class="p">[]</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Stash\Driver\FileSystem</span><span class="p">();</span>
-<span class="nv">$subDrivers</span><span class="p">[]</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Stash\Driver\Memcached</span><span class="p">();</span>
+<span class="nv">$subDrivers</span><span class="p">[]</span> <span class="o">=</span> <span class="nv">$apcDriver</span><span class="p">;</span>
+<span class="nv">$subDrivers</span><span class="p">[]</span> <span class="o">=</span> <span class="nv">$fileSystemDriver</span><span class="p">;</span>
+<span class="nv">$subDrivers</span><span class="p">[]</span> <span class="o">=</span> <span class="nv">$memcachedDriver</span><span class="p">;</span>
 
 <span class="nv">$options</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;drivers&#39;</span> <span class="o">=&gt;</span> <span class="nv">$subDrivers</span><span class="p">);</span>
-<span class="nv">$driver</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Stash\Driver\Composite</span><span class="p">(</span><span class="nv">$options</span><span class="p">);</span>
+<span class="nv">$driver</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Stash\Driver\Composite</span><span class="p">();</span>
+<span class="nv">$driver</span><span class="o">-&gt;</span><span class="na">setOptions</span><span class="p">(</span><span class="nv">$options</span><span class="p">);</span>
 
 <span class="nv">$pool</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Stash\Pool</span><span class="p">(</span><span class="nv">$driver</span><span class="p">);</span>
 <span class="nv">$item</span> <span class="o">=</span> <span class="nv">$pool</span><span class="o">-&gt;</span><span class="na">getItem</span><span class="p">(</span><span class="s1">&#39;test&#39;</span><span class="p">);</span>
 
-<span class="c1">// First it checks Apc. If that fails it checks FileSystem. If that succeeds</span>
-<span class="nx">it</span> <span class="nx">stores</span> <span class="nx">the</span> <span class="nx">returned</span> <span class="nx">value</span>
+<span class="c1">// First it checks Apc. If that fails it checks FileSystem. If that succeeds it stores the returned value</span>
 <span class="c1">// from FileSystem into Apc and then returns the value.</span>
-<span class="nv">$data</span> <span class="o">=</span> <span class="nv">$stash</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">();</span>
+<span class="nv">$data</span> <span class="o">=</span> <span class="nv">$item</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">();</span>
 
 <span class="c1">// First the data is stored in FileSystem, and then it is put into Apc.</span>
-<span class="nv">$stash</span><span class="o">-&gt;</span><span class="na">set</span><span class="p">(</span><span class="nv">$data</span><span class="p">);</span>
 
-<span class="c1">// As with the store function, the data is first removed from FileSystem</span>
-<span class="nx">before</span> <span class="nx">being</span> <span class="nx">cleared</span> <span class="nx">from</span> <span class="nx">Apc</span><span class="o">.</span>
-<span class="nv">$stash</span><span class="o">-&gt;</span><span class="na">clear</span><span class="p">();</span>
+<span class="k">if</span><span class="p">(</span><span class="nv">$item</span><span class="o">-&gt;</span><span class="na">isMiss</span><span class="p">())</span>
+<span class="p">{</span>
+    <span class="nv">$item</span><span class="o">-&gt;</span><span class="na">set</span><span class="p">(</span><span class="nv">$data</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// As with the store function, the data is first removed from FileSystem before being cleared from Apc.</span>
+<span class="nv">$item</span><span class="o">-&gt;</span><span class="na">clear</span><span class="p">();</span>
 </pre></div>
 </div>
 </div>
@@ -517,7 +529,7 @@ from being placed back into a cleared subdriver.</p>
 
         </div>
     </div>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -529,13 +541,13 @@ from being placed back into a cleared subdriver.</p>
         <li class="right" >
           <a href="API.html" title="Core API"
              >previous</a> |</li>
-        <li><a href="Contents.html">Stash 0.12.1 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="Contents.html">Stash 0.14.0 documentation</a> &raquo;</li> 
       </ul>
     </div>
 
   <script type="text/javascript" src="_static/js/bootstrap.js"></script>
   <div class="footer container">
-    &copy; Copyright 2014, Robert Hafner. Created using <a href="http://sphinx.pocoo.org/">Sphinx</a>.
+    &copy; Copyright 2016, Robert Hafner. Created using <a href="http://sphinx.pocoo.org/">Sphinx</a>.
   </div>
     <script type="text/javascript">
       var _gaq = _gaq || [];
