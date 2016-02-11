@@ -83,10 +83,11 @@ command line where possible, such as in an automated cron job, in order to impro
 Standards Compliance
 ====================
 
-In order to make interation with other projects easier, Stash complies with:
+In order to make interaction with other projects easier, Stash complies with:
 
 * `PSR-1 <http://www.php-fig.org/psr/1/>`_.,
 * `PSR-2 <http://www.php-fig.org/psr/2/>`_.,
 * `PSR-3 <http://www.php-fig.org/psr/3/>`_.
 * `PSR-4 <http://www.php-fig.org/psr/4/>`_.
+* `PSR-6 <http://www.php-fig.org/psr/6/>`_.
 * `semver 2.0.0 <http://semver.org/spec/v2.0.0.html>`_.
