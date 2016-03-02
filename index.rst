@@ -10,7 +10,7 @@ Features
 ========
 
 **PSR-6 Support**
-    Stash impliments the PSR-6 interfaces, allowing Stash to be injected into
+    Stash implements the PSR-6 interfaces, allowing Stash to be injected into
     any library that supports PSR-6.
 
 **Regeneration Before Expiration**
