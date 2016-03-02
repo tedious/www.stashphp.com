@@ -37,13 +37,12 @@ compared to the other drivers.
 .. code-block:: php
 
     <?php
-    // Uses a install specific default path if none is passed.
-    $driver = new Stash\Driver\FileSystem();
-
     // Setting a custom path is done by passing an options array to the constructor.
     $options = array('path' => '/tmp/myCache/');
-    $driver->setOptions($options);
-
+    
+    // Uses a install specific default path if none is passed.
+    $driver = new Stash\Driver\FileSystem($options);
+    
 
 Sqlite
 ------
@@ -85,12 +84,12 @@ sqlite3.
     <?php
     // StashSqlite
 
-    // Uses a install specific default path if none is passed.
-    $driver = new Stash\Driver\Sqlite();
-
     // Setting a custom path is done by passing an options array to the constructor.
     $options = array('path' => '/tmp/myCache/');
-    $driver->setOptions($options);
+    
+    // Uses a install specific default path if none is passed.
+    $driver = new Stash\Driver\Sqlite($options);
+
 
 
 APC
@@ -154,24 +153,23 @@ complete driver for Memcached, complete with hierarchical caching.
 
     <?php
     // One Server
-    $driver = new Stash\Driver\Memcache();
-    $driver->setOptions(array('servers' => array('127.0.0.1', '11211')));
+    $options = array('servers' => array('127.0.0.1', '11211'));
+    $driver = new Stash\Driver\Memcache($options);
 
 
     // Multiple Servers
-    $driver = new Stash\Driver\Memcache();
-
     $servers = array();
     $servers[] = array('127.0.0.1', '11211', 60);
     $servers[] = array('10.10.10.19', '11211', 20);
     $servers[] = array('10.10.10.19', '11211', 20);
-
-    $driver->setOptions(array('servers' => $servers));
+    
+    $options = array('servers'=>$servers);
+    
+    $driver = new Stash\Driver\Memcache($options);
 
 
     // Using memcached options
-    $driver = new Stash\Driver\Memcache();
-
+   
     $options = array();
     $options['servers'][] = array('mem1.example.net', '11211');
     $options['servers'][] = array('mem2.example.net', '11211');
@@ -181,7 +179,7 @@ complete driver for Memcached, complete with hierarchical caching.
     $options['cache_lookups'] = true;
     $options['serializer'] = 'json';
 
-    $driver->setOptions($options);
+    $driver = new Stash\Driver\Memcache($options);
 
 
 Redis
@@ -200,12 +198,12 @@ more servers.
 
     <?php
     // One Server
-    $driver = new Stash\Driver\Redis();
-    $driver->setOptions(array('servers' => array('127.0.0.1', '6379')));
+    $options = array('servers' => array('127.0.0.1', '6379'));
+    
+    $driver = new Stash\Driver\Redis($options);
 
 
     // Multiple Servers
-    $driver = new Stash\Driver\Redis();
 
     $servers = array();
     $servers[] = array('127.0.0.1');
@@ -213,8 +211,9 @@ more servers.
     $servers[] = array('10.10.10.19', '6379');
     $servers[] = array('10.10.10.19', '6380');
 
-    $driver->setOptions(array('servers' => $servers));
-
+    $options = array('servers' => $servers);
+    $driver = new Stash\Driver\Redis($options);
+    
 
 Specialized
 ===========
@@ -268,14 +267,11 @@ from being placed back into a cleared subdriver.
 .. code-block:: php
 
     <?php
-    $apcDriver = new Stash\Driver\Apc();
-    $apcDriver->setOptions(array('ttl' => 3600, 'namespace' => md5(__file__)));
+    $apcDriver = new Stash\Driver\Apc(array('ttl' => 3600, 'namespace' => md5(__file__)));
     
-    $fileSystemDriver = new Stash\Driver\FileSystem();
-    $fileSystemDriver->setOptions(array());
+    $fileSystemDriver = new Stash\Driver\FileSystem(array());
     
-    $memcachedDriver =  new Stash\Driver\Memcached();
-    $memcachedDriver->setOptions(array('servers' => array('localhost', '11211')));
+    $memcachedDriver =  new Stash\Driver\Memcached(array('servers' => array('localhost', '11211')));
     
     $subDrivers = array();
     $subDrivers[] = $apcDriver;
@@ -283,8 +279,7 @@ from being placed back into a cleared subdriver.
     $subDrivers[] = $memcachedDriver;
 
     $options = array('drivers' => $subDrivers);
-    $driver = new Stash\Driver\Composite();
-    $driver->setOptions($options);
+    $driver = new Stash\Driver\Composite($options);
 
     $pool = new Stash\Pool($driver);
     $item = $pool->getItem('test');
