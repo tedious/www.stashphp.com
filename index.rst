@@ -15,7 +15,7 @@ Features
 
 **Regeneration Before Expiration**
     Stash gives developers the option to regenerate a cached item before it
-    misses, making sure that up to data is always available while limiting
+    misses, making sure that up-to-date data is always available while limiting
     expensive code to running one instance at a time.
 
 **Distributed Cache Misses**
@@ -23,10 +23,10 @@ Features
     times by lowering the cache age a random amount, thus distributing the cache
     hits over a period of time.
 
-**Hierarchal Cache**
+**Hierarchical Cache**
     Stored items can be nested, like the folders of a filesystem. This allows
-    for related items to be groups together and erased when changed. Storing a
-    user's basic information can be nested 'users/userId/info', allow all of the
+    for related items to be grouped together and erased when changed. Storing a
+    user's basic information can be nested as 'users/userId/info', allowing all of the
     user's information to be removed quite easily.
 
 **Interchangeable Back Ends**
@@ -49,7 +49,7 @@ Features
     as well as an assortment of ways to handle misses.
 
 **Stores all PHP Datatypes**
-    Stash can store all of the php native datatypes- integers, booleans, null,
+    Stash can store all of the PHP native datatypes- integers, booleans, null,
     strings, arrays and objects that can be serialized.
 
 
