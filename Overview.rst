@@ -57,7 +57,7 @@ Autoloading
 If you installed using composer then you simply need to include it's autoloader.
 This is the preferred method of loading Stash.
 
-Stash confirms to PSR-4 and places it's code in the src folder, making it easy
+Stash conforms to PSR-4 and places it's code in the src folder, making it easy
 to include in a custom autoloader. This means "Stash\Pool" can be found in
 "src\Stash\Pool.php".
 
