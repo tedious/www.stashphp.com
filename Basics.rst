@@ -30,8 +30,8 @@ Keys are unique strings that map to data in the caching system. Each Item is ass
 level Keys can be looked at as alphanumeric strings with a one to one mapping. This works like most traditional caching
 systems, with each key mapping to a single piece of data in the caching system.
 
-Stash also has a special kind of grouping system that allow cache items to be nested by adding a slash to Keys (the same
-syntax as identifying folders on a filesystem). These slashes tells Stash where the nesting points are. Nesting allows
+Stash also has a special kind of grouping system that allows cache items to be nested by adding a slash to Keys (the same
+syntax as identifying folders on a filesystem). These slashes tell Stash where the nesting points are. Nesting allows
 developers to organize items just like they would files and folders on a computer. This makes clearing groups of items
 in the cache as simple as clearing their parent node, just like deleting a directory would erase all the files underneath.
 
@@ -122,7 +122,7 @@ Storing and retrieving data is done using the Pool class.
 
 Manipulating Data is done through the Item class. Six functions do the bulk of the work:
 
-* *get()* - Returns data that was previously stored, or null if nothing stored. (Since it is possible to store null
+* *get()* - Returns data that was previously stored, or null if nothing is stored. (Since it is possible to store null
   values it is very important not to rely on a null return to check for a cache miss.)
 
 * *isHit()* - Returns true if fresh data is present; returns false if no data is stored or the data is stale.
@@ -144,18 +144,18 @@ it's fresh, and then regenerate and store the data if it was stale or absent.
     <?php
 
     // Get a cache item.
-	$item = $pool->getItem('path/to/item');
+    $item = $pool->getItem('path/to/item');
 
-    // Attempt to get the data
+    // Attempt to get the data.
     $data = $item->get();
 
     // Check to see if the data was a miss.
-    if($item->isMiss())
+    if ($item->isMiss())
     {
         // Let other processes know that this one is rebuilding the data.
         $item->lock();
 
-        // Run intensive code
+        // Run intensive code.
         $data = codeThatTakesALongTime();
 
         // Store the expensive to generate data.
@@ -174,11 +174,11 @@ or an explicit expiration using a DateTime object.
     <?php
 
     // Get cache item.
-	$item = $pool->getItem('path/to/item');
+    $item = $pool->getItem('path/to/item');
 
     // Using an age.
     $data = $pool->get();
-    if($item->isMiss())
+    if ($item->isMiss())
     {
         $data = expensiveFunction();
 
@@ -193,7 +193,7 @@ or an explicit expiration using a DateTime object.
 
     // Using a DateTime.
     $data = $item->get();
-    if($item->isMiss())
+    if ($item->isMiss())
     {
         $data = expensiveFunction();
 
@@ -210,7 +210,7 @@ or an explicit expiration using a DateTime object.
     The expiration time only sets a maximum time the Item can be considered fresh, not a minimum. Items can be
     invalidated from the cache before their expiration time for a number of reasons. Stash will also attempt to
     distribute cache misses to normalize system load. At no point will an Item be considered fresh after the expiration
-    or ttl is reached.
+    or TTL is reached.
 
 
 Clearing Data
@@ -225,8 +225,8 @@ the hierarchy.*
     // Clearing a key.
     $pool->deleteItem('path/to/data/specific/123');
 
-    // Clearing a key with subkeys
-    $pool->deleteItem('path/to/data/specific/123');  // clears 'path/to/data/*' as well as 'path/to/data'
+    // Clearing a key with subkeys.
+    $pool->deleteItem('path/to/data');  // clears 'path/to/data/*' as well as 'path/to/data'
 
 
 Emptying the Entire Cache
