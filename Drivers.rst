@@ -114,12 +114,11 @@ to use.
 .. code-block:: php
 
     <?php
-    // Uses a install specific default path if none is passed.
-    $driver = new Stash\Driver\Apc();
-
     // Setting a custom path is done by passing an options array to the constructor.
     $options = array('ttl' => 3600, 'namespace' => md5(__file__));
-    $driver->setOptions($options);
+    
+    // Uses a install specific default path if none is passed.
+    $driver = new Stash\Driver\Apc($options);
 
 
 Server
