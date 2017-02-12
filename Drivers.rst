@@ -40,7 +40,7 @@ compared to the other drivers.
     // Setting a custom path is done by passing an options array to the constructor.
     $options = array('path' => '/tmp/myCache/');
     
-    // Uses a install specific default path if none is passed.
+    // Uses an install specific default path if none is passed.
     $driver = new Stash\Driver\FileSystem($options);
     
 
