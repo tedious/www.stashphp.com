@@ -197,7 +197,7 @@ more servers.
 
     <?php
     // One Server
-    $options = array('servers' => array('127.0.0.1', '6379'));
+    $options = array('servers' => array(array('127.0.0.1', '6379')));
     
     $driver = new Stash\Driver\Redis($options);
 
